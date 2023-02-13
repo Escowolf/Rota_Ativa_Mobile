@@ -1,7 +1,5 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { Button, FAB, Flex, Icon, IconComponentProvider } from "@react-native-material/core";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import {PROVIDER_GOOGLE} from "react-native-maps";
+import { StyleSheet, View} from "react-native";
+import { Button } from "@react-native-material/core";
 import MapView, {Marker} from "react-native-maps";
 import * as Location from 'expo-location';
 import { useEffect, useState } from "react";
@@ -37,8 +35,12 @@ export default function Map({ navigation }) {
   return (
     <View style={styles.container}>
       <MapView region={regiao} style={styles.map}>
-
-        <Marker coordinate={regiao} title='Marker'/>
+        <Marker 
+          coordinate={regiao} 
+          title='Principal'
+          description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawwwwwwwwbn"
+          image={require('../assets/gps.png')}
+        />
       </MapView>
       <View
         style={{
