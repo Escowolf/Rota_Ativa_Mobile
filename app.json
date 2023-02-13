@@ -19,7 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "n"
+      "bundleIdentifier": "com.lopes.lucas.Rota_Ativa_Mobile"
     },
     "android": {
       "adaptiveIcon": {

@@ -34,7 +34,12 @@ export default function Map({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <MapView region={regiao} style={styles.map}>
+      <MapView 
+        region={regiao} 
+        style={styles.map}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
+      >
         <Marker 
           coordinate={regiao} 
           title='Principal'
@@ -42,56 +47,24 @@ export default function Map({ navigation }) {
           image={require('../assets/gps.png')}
         />
       </MapView>
-      <View
-        style={{
-            position: 'absolute',//use absolute position to show button on top of the map
-            top: '90%',
-            left: '30%',   //for center align
-            alignSelf: 'flex-end' //for align to right
-        }}
-    >
-       <Button title='Sua localização' onPress={userLocation}/>
-    </View>
+      <View style={styles.button}>
+        <Button title='Sua localização' onPress={userLocation}/>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  con: {
-    backgroundColor: "#FFF",
-  },
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  image: {
-    margin: 100,
-  },
-  cabecalho: {
-    marginTop: 50,
-    marginBottom: 20,
-    borderRadius: 10,
-    padding: 10,
-  },
-  cabecalho1: {
-    backgroundColor: "#F2E7DC",
-    borderRadius: 10,
-    padding: 10,
-  },
-  cabecalho2: {
-    marginTop: 10,
-    borderRadius: 10,
-  },
-  titulo: {
-    fontSize: 25,
-  },
-  cor: {
-    color: "#027373",
-  },
   button: {
-    backgroundColor: "#A9D9D0",
-    marginBottom: 10,
+    position: 'absolute',
+    top: '90%',
+    left: '30%', 
+    alignSelf: 'flex-end' 
   },
   map: {
     width: "100%",
