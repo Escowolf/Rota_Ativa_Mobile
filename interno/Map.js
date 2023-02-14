@@ -41,6 +41,7 @@ export default function Map({ navigation }) {
   function renderMarkers() {
     return dados.map((x, i) => (
       <Marker
+        image={require('../assets/gps.png')}
         key={i}
         coordinate={{
           latitude: x.latitude,
@@ -66,8 +67,10 @@ export default function Map({ navigation }) {
         style={styles.map}
         showsUserLocation={true}
         showsMyLocationButton={true}>
+
         {renderMarkers()}
         {renderAreas()}
+        
         <MapViewDirections
           strokeWidth={3}
           strokeColor="#027373"
@@ -75,6 +78,7 @@ export default function Map({ navigation }) {
           destination={destino}
           apikey={GOOGLE_MAPS_APIKEY}
         />
+
       </MapView>
     </SafeAreaView>
   );
