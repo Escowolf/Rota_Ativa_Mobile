@@ -1,8 +1,7 @@
-import { StyleSheet, View} from "react-native";
-import { Button } from "@react-native-material/core";
+import { SafeAreaView, StyleSheet} from "react-native";
 import MapView, {Marker} from "react-native-maps";
-import * as Location from 'expo-location';
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import MapViewDirections from 'react-native-maps-directions';
 
 export default function Map({ navigation }) {
   const [regiao, setRegiao]= useState({
@@ -12,28 +11,14 @@ export default function Map({ navigation }) {
     longitudeDelta: 0.0421
   });
 
-  const userLocation = async()=>{
-    let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        return;
-      }
+  const origin = {latitude: -3.731862, longitude: -38.526669};
+  const destination = {latitude: -3.767522, longitude: -38.481988};
+  // const GOOGLE_MAPS_APIKEY = 'AIzaSyDBscTlHcyJ
+  // 5FTZ5Dlw7-ojc3LPhFfbAuY';
 
-      let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
-      setRegiao({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421
-      });
-  }
-
-  useEffect(() => {
-    // userLocation();
-  }, [])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <MapView 
         region={regiao} 
         style={styles.map}
@@ -46,19 +31,21 @@ export default function Map({ navigation }) {
           description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawwwwwwwwbn"
           image={require('../assets/gps.png')}
         />
+        <MapViewDirections
+          strokeWidth={3}
+          strokeColor="#027373"
+          origin={origin}
+          destination={destination}
+          apikey={GOOGLE_MAPS_APIKEY}
+        />
       </MapView>
-      <View style={styles.button}>
-        <Button title='Sua localização' onPress={userLocation}/>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    flex: 1
   },
   button: {
     position: 'absolute',
