@@ -1,9 +1,10 @@
 import { SafeAreaView, StyleSheet} from "react-native";
-import MapView, {Marker} from "react-native-maps";
+import MapView, {Marker, Polyline} from "react-native-maps";
 import { useState } from "react";
 import MapViewDirections from 'react-native-maps-directions';
 import * as Location from 'expo-location';
-import dados from "./dados.json";
+import dados from "../dados/pontos.json";
+import dados2 from "../dados/areas.json";
 
 export default function Map({ navigation }) {
   const [regiao, setRegiao]= useState({

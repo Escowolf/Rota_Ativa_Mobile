@@ -1,0 +1,314 @@
+[
+    {
+        "path": [
+            {
+                "latitude": -3.726077,
+                "longitude": -38.495077
+            },
+            {
+                "latitude": -3.725595,
+                "longitude": -38.491622
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.726580,
+                "longitude": -38.491326
+            },
+            {
+                "latitude": -3.725600,
+                "longitude": -38.491543
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.727608,
+                "longitude": -38.491178
+            },
+            {
+                "latitude": -3.729014,
+                "longitude": -38.490775
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.729014,
+                "longitude": -38.490775
+            },
+            {
+                "latitude": -3.735742,
+                "longitude": -38.492820
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.729332,
+                "longitude": -38.489679
+            },
+            {
+                "latitude": -3.738060,
+                "longitude": -38.492477
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.730903,
+                "longitude": -38.491170
+            },
+            {
+                "latitude": -3.731539,
+                "longitude": -38.489400
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.731911,
+                "longitude": -38.491402
+            },
+            {
+                "latitude": -3.732594,
+                "longitude": -38.489348
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.732925,
+                "longitude": -38.491711
+            },
+            {
+                "latitude": -3.733652,
+                "longitude": -38.489326
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.733895,
+                "longitude": -38.492020
+            },
+            {
+                "latitude": -3.734798,
+                "longitude": -38.489282
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.735922,
+                "longitude": -38.489193
+            },
+            {
+                "latitude": -3.735922,
+                "longitude": -38.487139
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.735922,
+                "longitude": -38.489193
+            },
+            {
+                "latitude": -3.732352,
+                "longitude": -38.500214
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.732594,
+                "longitude": -38.489746
+            },
+            {
+                "latitude": -3.739362,
+                "longitude": -38.491858
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.735838,
+                "longitude": -38.489639
+            },
+            {
+                "latitude": -3.739709,
+                "longitude": -38.490882
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.737019,
+                "longitude": -38.489135
+            },
+            {
+                "latitude": -3.733684,
+                "longitude": -38.499649
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.734615,
+                "longitude": -38.499971
+            },
+            {
+                "latitude": -3.738022,
+                "longitude": -38.489333
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.738732,
+                "longitude": -38.490701
+            },
+            {
+                "latitude": -3.730532,
+                "longitude": -38.515825
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.738173,
+                "longitude": -38.495840
+            },
+            {
+                "latitude": -3.736607,
+                "longitude": -38.500586
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.739133,
+                "longitude": -38.496141
+            },
+            {
+                "latitude": -3.738293,
+                "longitude": -38.498833
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.733659,
+                "longitude": -38.493219
+            },
+            {
+                "latitude": -3.738456,
+                "longitude": -38.494766
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.733328,
+                "longitude": -38.494176
+            },
+            {
+                "latitude": -3.738087,
+                "longitude": -38.495717
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.729378,
+                "longitude": -38.496176
+            },
+            {
+                "latitude": -3.737170,
+                "longitude": -38.498626
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.731031,
+                "longitude": -38.494547
+            },
+            {
+                "latitude": -3.738747,
+                "longitude": -38.497067
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.731426,
+                "longitude": -38.500091
+            },
+            {
+                "latitude": -3.737194,
+                "longitude": -38.501890
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.731774,
+                "longitude": -38.499096
+            },
+            {
+                "latitude": -3.737512,
+                "longitude": -38.500941
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.733024,
+                "longitude": -38.498415
+            },
+            {
+                "latitude": -3.736858,
+                "longitude": -38.499689
+            }
+        ]
+    },
+    {
+        "path": [
+            {
+                "latitude": -3.732623,
+                "longitude": -38.496090
+            },
+            {
+                "latitude": -3.740339,
+                "longitude": -38.498568
+            }
+        ]
+    }
+]
