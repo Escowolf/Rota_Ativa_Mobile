@@ -1,32 +1,32 @@
 import { useEffect } from "react";
-import {Alert, Image, StyleSheet, Text, View, ScrollView } from "react-native";
-import TextField from "../components/TextField";
 import { useForm } from "react-hook-form";
-import { Button } from "@react-native-material/core";
+import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import TextField from "../../components/TextField";
+import {
+  Button,
+} from "@react-native-material/core";
+import CadastroViewModel from "./CadastroViewModel";
 
-export default function EditarPerfil({ navigation }) {
+export default function CadastroView({ navigation }) {
 
-  const { register, setValue, handleSubmit } = useForm();
+  const {
+    setValue,
+    handleSubmit,
+    onSubmit,
+    isLoading,
+    setIsLoading
+  } = CadastroViewModel();
 
-  useEffect(() => {
-    register("nome");
-    register("email");
-    register("cpf");
-    register("senha");
-    register("senhaConfirma");
-  }, [register]);
-
-  const onSubmit = (data) => {
-    Alert.alert(data.email, data.senha);
-    navigation.navigate("Login");
-  };
 
   return (
     <ScrollView style={styles.con}>
       <View style={styles.container}>
-      <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor]}>
-              Edite seu Perfil
+        <View style={styles.cabecalho}>
+          <Text Text style={[styles.titulo, styles.cor]}>
+            Seja bem-vindo(a)!
+          </Text>
+          <Text style={[styles.subTitulo, styles.cor]}>
+            Faça seu cadastro
           </Text>
         </View>
         <TextField
@@ -66,7 +66,7 @@ export default function EditarPerfil({ navigation }) {
           style={styles.button}
           onPress={handleSubmit(onSubmit)}
           title="Cadastrar"
-        /> 
+        />
       </View>
     </ScrollView>
   );
@@ -77,13 +77,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#027373",
   },
   container: {
-    flex: 1,
-    backgroundColor: "#027373",
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
     margin: 100,
+  },
+  cabecalho: {
+    margin: 50,
+    borderRadius: 10,
+  },
+  titulo: {
+    fontSize: 35,
+  },
+  subTitulo: {
+    fontSize: 20,
+  },
+  cor: {
+    color: "white",
   },
   button: {
     backgroundColor: "#A9D9D0",

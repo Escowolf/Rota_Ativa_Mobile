@@ -1,37 +1,19 @@
 import { useEffect } from "react";
+import { Alert, Image, StyleSheet, Text, View, ScrollView } from "react-native";
+import TextField from "../../components/TextField";
 import { useForm } from "react-hook-form";
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
-import TextField from "../components/TextField";
-import {
-  Button,
-} from "@react-native-material/core";
+import { Button } from "@react-native-material/core";
+import EditarPerfilViewModel from "./EditarPerfilViewModel";
 
-export default function Cadastro({ navigation }) {
-  const { register, setValue, handleSubmit } = useForm();
-
-  useEffect(() => {
-    register("nome");
-    register("email");
-    register("cpf");
-    register("senha");
-    register("senhaConfirma");
-  }, [register]);
-
-  const onSubmit = (data) => {
-    Alert.alert(data.email, data.senha);
-    navigation.navigate("Login");
-  };
+export default function EditarPerfilView({ navigation }) {
+  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
+    EditarPerfilViewModel();
 
   return (
     <ScrollView style={styles.con}>
       <View style={styles.container}>
         <View style={styles.cabecalho}>
-          <Text Text style={[styles.titulo, styles.cor]}>
-            Seja bem-vindo(a)!
-          </Text>
-          <Text style={[styles.subTitulo, styles.cor]}>
-            Faça seu cadastro
-          </Text>
+          <Text style={[styles.titulo, styles.cor]}>Edite seu Perfil</Text>
         </View>
         <TextField
           label={"Nome Completo"}
@@ -51,13 +33,7 @@ export default function Cadastro({ navigation }) {
           onChangeText={(text) => setValue("cpf", text)}
           icon={"account"}
         />
-        <TextField
-          label={"Senha"}
-          placeholder={"Digite sua senha"}
-          onChangeText={(text) => setValue("senha", text)}
-          secureTextEntry={true}
-          icon={"lock"}
-        />
+        <Button title="000.000.000-00" disabled />
         <TextField
           label={"Confirme sua senha"}
           placeholder={"Digite sua senha novamente"}
@@ -69,7 +45,7 @@ export default function Cadastro({ navigation }) {
           tintColor="#535353"
           style={styles.button}
           onPress={handleSubmit(onSubmit)}
-          title="Cadastrar"
+          title="Atualizar"
         />
       </View>
     </ScrollView>
@@ -81,28 +57,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#027373",
   },
   container: {
-    display: "flex",
+    flex: 1,
+    backgroundColor: "#027373",
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
     margin: 100,
   },
-  cabecalho: {
+  button: {
+    backgroundColor: "#A9D9D0",
+    marginBottom: 10,
+  },cabecalho: {
     margin: 50,
     borderRadius: 10,
   },
   titulo: {
     fontSize: 35,
   },
-  subTitulo: {
-    fontSize: 20,
-  },
   cor: {
     color: "white",
-  },
-  button: {
-    backgroundColor: "#A9D9D0",
-    marginBottom: 10,
   },
 });

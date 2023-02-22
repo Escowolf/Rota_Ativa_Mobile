@@ -1,11 +1,11 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Historico from "../interno/Historico";
-import Map from "../interno/Map";
-import Localizacao from "../interno/Localizacao";
+import Map from "./map/MapView";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-
+import VeiculosView from "./veiculos/VeiculosView";
+import HistoricoView from "./historico/HistoricoView";
+import EditarPerfilView from "./editarPerfil/EditarPerfilView";
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -20,12 +20,12 @@ export default function Home({ navigation }) {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="home" color='tomato' size={26} />
+            <MaterialCommunityIcons name="home" color='#027373' size={26} />
           ),
         }}>
         {() => (
           <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
-            <SettingsStack.Screen name="Localização" component={Localizacao} />
+            <SettingsStack.Screen name="EditarPerfilView" component={EditarPerfilView} />
           </SettingsStack.Navigator>
         )}
       </Tab.Screen>
@@ -35,12 +35,13 @@ export default function Home({ navigation }) {
         options={{
           tabBarLabel: 'Mapa',
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="map" color='tomato' size={26} />
+            <MaterialCommunityIcons name="map" color='#027373' size={26} />
           ),
         }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }}>
             <HomeStack.Screen name="Map" component={Map} />
+            <HomeStack.Screen name="VeiculosView" component={VeiculosView} />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>
@@ -48,14 +49,14 @@ export default function Home({ navigation }) {
       <Tab.Screen 
         name="Perfil"
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Perfil',
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="account" color='tomato' size={26} />
+            <MaterialCommunityIcons name="account" color='#027373' size={26} />
           ),
         }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-            <HomeStack.Screen name="EditarPerfil" component={Historico} />
+            <HomeStack.Screen name="HistoricoView" component={HistoricoView} />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>

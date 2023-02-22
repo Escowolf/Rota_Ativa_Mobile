@@ -6,11 +6,16 @@ import {
   Pressable,
   Button,
   Stack,
+  Dialog,
+  DialogHeader,
+  DialogContent,
+  DialogActions,
+  TextInput,
 } from "@react-native-material/core";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import TextField from "../components/TextField";
+import { useState } from "react";
 
-export default function Historico({ navigation }) {
+export default function HistoricoView({ navigation }) {
   return (
     <ScrollView style={styles.con}>
       <View style={styles.container}>
@@ -19,6 +24,7 @@ export default function Historico({ navigation }) {
             Histórico de estacionamento
           </Text>
         </View>
+
         <Flex style={styles.cabecalho1} center>
           <Flex direction="row" center h={50}>
             <IconComponentProvider IconComponent={MaterialCommunityIcons}>
@@ -50,63 +56,6 @@ export default function Historico({ navigation }) {
           </Flex>
         </Flex>
 
-        <Flex style={styles.cabecalho1} center>
-          <Flex center>
-            <TextField
-              placeholder={"Placa"}
-              onChangeText={(text) => setValue("nome", text)}
-              icon={"car"}
-            />
-            <TextField
-              placeholder={"Renavan"}
-              onChangeText={(text) => setValue("nome", text)}
-              icon={"car"}
-            />
-
-            <TextField
-              placeholder={"Ano"}
-              onChangeText={(text) => setValue("nome", text)}
-              icon={"car"}
-            />
-
-            <TextField
-              placeholder={"Cor"}
-              onChangeText={(text) => setValue("nome", text)}
-              icon={"car"}
-            />
-          </Flex>
-        </Flex>
-
-        <Pressable
-          style={{ width: 300, height: 300, backgroundColor: "#F2E7DC" }}
-        >
-          <Stack fill center spacing={3}>
-            <Flex direction="row" w={200} >
-              <Text style={[styles.titulo, styles.cor]}>
-                Placa
-              </Text>
-              <Button title="Placa" disabled />
-            </Flex>
-            <Flex direction="row" w={200}>
-              <Text style={[styles.titulo, styles.cor]}>
-              Renavan
-              </Text>
-              <Button title="Renavan" disabled />
-            </Flex>
-            <Flex direction="row" w={200}>
-              <Text style={[styles.titulo, styles.cor]}>
-              Ano
-              </Text>
-              <Button title="Ano" disabled />
-            </Flex>
-            <Flex direction="row" w={200}>
-              <Text style={[styles.titulo, styles.cor]}>
-              Cor
-              </Text>
-              <Button title="Cor" disabled />
-            </Flex>
-          </Stack>
-        </Pressable>
       </View>
     </ScrollView>
   );
@@ -141,7 +90,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   titulo: {
-    fontSize: 25,
+    fontSize: 25
   },
   cor: {
     color: "#027373",
