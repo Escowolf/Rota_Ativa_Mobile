@@ -7,6 +7,7 @@ import dados from "../../dados/pontos.json";
 import dados2 from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./MapViewModel";
+import Constants from 'expo-constants';
 
 export default function Map({ navigation }) {
 
@@ -136,8 +137,9 @@ export default function Map({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    position: "relative"
+    flex: 1,    
+    position: "relative",
+    paddingTop: Constants.statusBarHeight
   },
   map: {
     width: "100%",
