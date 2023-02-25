@@ -13,14 +13,18 @@ const HomeStack = createNativeStackNavigator();
 
 export default function Home({ navigation }) {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator screenOptions={{ headerShown: false, 
+                                    tabBarStyle: { backgroundColor: '#33404F'},
+                                    tabBarActiveTintColor: '#1CA9A9',
+                                    tabBarInactiveTintColor: '#fff'
+                                    }}>
       
       <Tab.Screen 
         name="Home"
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="home" color='#027373' size={26} />
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }}>
         {() => (
@@ -34,8 +38,8 @@ export default function Home({ navigation }) {
         name="Mapa"
         options={{
           tabBarLabel: 'Mapa',
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="map" color='#027373' size={26} />
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="map" color={color} size={26} />
           ),
         }}>
         {() => (
@@ -50,8 +54,8 @@ export default function Home({ navigation }) {
         name="Perfil"
         options={{
           tabBarLabel: 'Perfil',
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="account" color='#027373' size={26} />
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}>
         {() => (

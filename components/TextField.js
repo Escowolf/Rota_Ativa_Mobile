@@ -18,11 +18,10 @@ export default function TextField({ label, icon, ...inputProps }) {
 const styles = StyleSheet.create({
   textField: {
     width: 300,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   text: {
     color: "white",
-    paddingLeft: 15,
-    fontSize: 17,
+    fontSize: 17
   },
 });

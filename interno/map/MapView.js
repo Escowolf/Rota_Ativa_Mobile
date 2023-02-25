@@ -37,8 +37,7 @@ export default function Map({ navigation }) {
     })
   }
 
-  //const GOOGLE_MAPS_APIKEY = "AIzaSyDBscTlHcyJ5FTZ5
-  //Dlw7-ojc3LPhFfbAuY";
+  const GOOGLE_MAPS_APIKEY = "AIzaSyDBscTlHcyJ5FTZ5Dlw7-ojc3LPhFfbAuY";
 
   function closeCard(e){
     if (e.nativeEvent.action !== 'marker-press') {

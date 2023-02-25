@@ -2,41 +2,29 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Button } from "@react-native-material/core";
 import Constants from 'expo-constants';
 
-export default function Index({ navigation }) {
+export default function Sucesso({ navigation }) {
   return (
-      <View style={styles.container}>
-        <ImageBackground
-        source={require('../assets/backgroundImage.png')}
-        resizeMode="cover"
-        style={styles.background}>
+    <View style={styles.container}>
+    <ImageBackground
+    source={require('../assets/backgroundImage.png')}
+    resizeMode="cover"
+    style={styles.background}>
 
-        <Image style={styles.image} source={require('../assets/logo.png')}/>
+        <Image style={styles.image} source={require('../assets/sucesso.png')}/>
 
         <View style={styles.cabecalho}>
           <Text style={[styles.titulo, styles.cor]}>
-            Bem-vindo(a) ao RotaAtiva
-          </Text>
-          <Text style={[styles.subTitulo, styles.cor]}>
-            O aplicativo para todos
+            Senha recuperada com sucesso!
           </Text>
         </View>
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.login]} 
-          onPress={() =>
-            navigation.navigate('Sucesso')
-          } 
-          title="Entrar"
-          />
-
-        <Button 
-          tintColor="#fff" 
           style={[styles.button, styles.cadastro]} 
           onPress={() =>
-            navigation.navigate('Erro')
+            navigation.navigate('Login')
           } 
-          title="Cadastrar"
+          title="Entrar no Aplicativo"
         />
         
         </ImageBackground>
@@ -51,10 +39,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image:{
-    marginTop: Constants.statusBarHeight + 40
+    marginTop: Constants.statusBarHeight + 40,
   },
   button:{
-    backgroundColor: '#1CA9A9',
+    backgroundColor: '#16BE81',
     marginBottom:10,
     width: 300,
     position:"absolute"
@@ -62,6 +50,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     width: '100%'
   },
   cabecalho: {

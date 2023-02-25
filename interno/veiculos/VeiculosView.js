@@ -24,8 +24,11 @@ export default function VeiculosView({ navigation }) {
   } = VeiculosViewModel();
 
   return (
-    <ScrollView style={styles.con}>
-      <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.con}>
+      <ScrollView 
+        showsVerticalScrollIndicator={false} 
+        contentContainerStyle={styles.container}
+      >
         <View style={styles.cabecalho}>
           <Text Text style={[styles.titulo1, styles.cor]}>
             Veiculos Cadastrados
@@ -33,59 +36,76 @@ export default function VeiculosView({ navigation }) {
         </View>
 
         <Pressable
-          style={{ width: 300, height: 300, backgroundColor: "#F2E7DC", marginBottom: 20 }}
+          style={{ width: 300, height: 200, backgroundColor: "#BBBBBB", marginBottom: 20, borderRadius: 10 }}
           onPress={() => setVisible(true)}
         >
-          <Stack fill center spacing={3}>
-            <Flex direction="row" w={200}>
+          <Stack fill center spacing={4}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Placa</Text>
-              <Button title="Placa" disabled />
+              <Button style={{width: 140}} title="AXE7531" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
-              <Text style={[styles.titulo, styles.cor]}>Renavan</Text>
-              <Button title="Renavan" disabled />
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Renavam</Text>
+              <Button style={{width: 140}} title="95476219843" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Ano</Text>
-              <Button title="Ano" disabled />
+              <Button style={{width: 140}} title="2014" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Cor</Text>
-              <Button title="Cor" disabled />
+              <Button style={{width: 140}} title="Vermelho" disabled />
+            </Flex>
+          </Stack>
+        </Pressable>
+      
+        <Pressable
+          style={{ width: 300, height: 200, backgroundColor: "#BBBBBB", marginBottom: 20, borderRadius: 10 }}
+          onPress={() => setVisible(true)}
+        >
+          <Stack fill center spacing={4}>
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Placa</Text>
+              <Button style={{width: 140}} title="AXE7531" disabled />
+            </Flex>
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Renavam</Text>
+              <Button style={{width: 140}} title="95476219843" disabled />
+            </Flex>
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Ano</Text>
+              <Button style={{width: 140}} title="2014" disabled />
+            </Flex>
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Cor</Text>
+              <Button style={{width: 140}} title="Vermelho" disabled />
             </Flex>
           </Stack>
         </Pressable>
 
         <Pressable
-          style={{ width: 300, height: 300, backgroundColor: "#F2E7DC", marginBottom: 20 }}
+          style={{ width: 300, height: 200, backgroundColor: "#BBBBBB", marginBottom: 20, borderRadius: 10 }}
           onPress={() => setVisible(true)}
         >
-          <Stack fill center spacing={3}>
-            <Flex direction="row" w={200}>
+          <Stack fill center spacing={4}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Placa</Text>
-              <Button title="Placa" disabled />
+              <Button style={{width: 140}} title="AXE7531" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
-              <Text style={[styles.titulo, styles.cor]}>Renavan</Text>
-              <Button title="Renavan" disabled />
+            <Flex direction="row" w={230}>
+              <Text style={[styles.titulo, styles.cor]}>Renavam</Text>
+              <Button style={{width: 140}} title="95476219843" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Ano</Text>
-              <Button title="Ano" disabled />
+              <Button style={{width: 140}} title="2014" disabled />
             </Flex>
-            <Flex direction="row" w={200}>
+            <Flex direction="row" w={230}>
               <Text style={[styles.titulo, styles.cor]}>Cor</Text>
-              <Button title="Cor" disabled />
+              <Button style={{width: 140}} title="Vermelho" disabled />
             </Flex>
           </Stack>
         </Pressable>
-
-        <Button
-          title="Adicionar veiculos"
-          loading={isLoading}
-          loadingIndicatorPosition="overlay"
-          onPress={() => setVisible(true)}
-        />
 
         <Dialog visible={visible} onDismiss={() => setVisible(false)}>
           <DialogHeader title="Dialog Header" />
@@ -118,7 +138,14 @@ export default function VeiculosView({ navigation }) {
             />
           </DialogActions>
         </Dialog>
-      </View>
+      </ScrollView>
+      <Button
+          style={styles.button}
+          title="Adicionar veiculos"
+          loading={isLoading}
+          loadingIndicatorPosition="overlay"
+          onPress={() => setVisible(true)}
+        />
     </ScrollView>
   );
 }
@@ -126,9 +153,10 @@ export default function VeiculosView({ navigation }) {
 const styles = StyleSheet.create({
   con: {
     backgroundColor: "#FFF",
+    flex: 1,
+    alignItems: 'center'
   },
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -152,17 +180,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   titulo: {
-    fontSize: 25,
-    width: 120,
+    fontSize: 22,
+    width: 100,
   },
   titulo1: {
     fontSize: 25,
   },
   cor: {
-    color: "#027373",
+    color: "#212121",
   },
   button: {
-    backgroundColor: "#A9D9D0",
-    marginBottom: 10,
+    backgroundColor: "#1CA9A9",
+    width: 300,
+    position:"absolute",
+    bottom: 20
   },
 });

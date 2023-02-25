@@ -6,6 +6,8 @@ import CadastroView from './externo/cadastro/CadastroView.js';
 import Home from './interno/Home.js';
 import LoginView from './externo/login/LoginView.js'
 import Index from './externo/Index.js'
+import Sucesso from './alertas/sucesso.js';
+import Erro from './alertas/erro.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,8 @@ export default function App() {
           <Stack.Screen name="Login" component={LoginView} options={{ headerShown: false }}/>
           <Stack.Screen name="Cadastro" component={CadastroView} options={{ headerShown: false }}/>
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+          <Stack.Screen name="Sucesso" component={Sucesso} options={{ headerShown: false }}/>
+          <Stack.Screen name="Erro" component={Erro} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

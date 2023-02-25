@@ -1,66 +1,98 @@
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Alert, Image, ScrollView, StyleSheet, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  ImageBackground,
+  Text,
+} from "react-native";
 import { Button } from "@react-native-material/core";
 import TextField from "../../components/TextField";
 import LoginViewModel from "./LoginViewModel";
+import Constants from "expo-constants";
 
 export default function LoginView({ navigation }) {
-
-  const {
-    setValue,
-    handleSubmit,
-    onSubmit,
-    isLoading,
-    setIsLoading
-  } = LoginViewModel(navigation);
-
+  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
+    LoginViewModel(navigation);
 
   return (
-    <ScrollView contentContainerStyle={styles.con}>
+    <View style={styles.con}>
       <ImageBackground
-        source={require('../../assets/backgroundImage.png')}
+        source={require("../../assets/backgroundImage.png")}
         resizeMode="cover"
-        style={styles.background}>
+        style={styles.background}
+      >
+        <ScrollView 
+         showsVerticalScrollIndicator={false} 
+         contentContainerStyle={{flex:1}}
+        >
+          <View style={styles.cabecalho}>
+            <Text Text style={[styles.titulo, styles.cor]}>
+              Login
+            </Text>
+            <Text style={[styles.subTitulo, styles.cor]}>
+              Faça login na sua Conta
+            </Text>
+          </View>
 
-        <View style={styles.container}>
-          <TextField
-            label={"Email"}
-            placeholder={"Digite seu email"}
-            onChangeText={(text) => setValue("email", text)}
-            icon={"account"}
+          <View style={styles.container}>
+            <TextField
+              label={"Email"}
+              placeholder={"Digite seu email"}
+              onChangeText={(text) => setValue("email", text)}
+              icon={"account"}
+            />
+            <TextField
+              label={"Senha"}
+              placeholder={"Digite sua senha"}
+              onChangeText={(text) => setValue("senha", text)}
+              secureTextEntry={true}
+              icon={"lock"}
+            />
+          </View>
+          <Button
+            tintColor="#fff"
+            style={styles.button}
+            onPress={handleSubmit(onSubmit)}
+            title="Logar"
           />
-          <TextField
-            label={"Senha"}
-            placeholder={"Digite sua senha"}
-            onChangeText={(text) => setValue("senha", text)}
-            secureTextEntry={true}
-            icon={"lock"}
-          />
-          <Button tintColor="#535353" style={styles.button} onPress={handleSubmit(onSubmit)} title="Logar" />
-        </View>
+        </ScrollView>
       </ImageBackground>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   con: {
     backgroundColor: "#027373",
-    flex: 1
+    flex: 1,
   },
   container: {
-    flex: 1,
-    backgroundColor: "#027373",
     alignItems: "center",
-    marginTop: 20
+    marginTop: 20,
   },
   button: {
-    backgroundColor: '#A9D9D0',
-    marginBottom: 10
-  }, 
+    backgroundColor: "#1CA9A9",
+    width: 300,
+    position:"absolute",
+    bottom: 20
+  },
   background: {
     flex: 1,
-    justifyContent: 'center',
-  }
+    alignItems: 'center'
+  },
+  cabecalho: {
+    marginTop: Constants.statusBarHeight + 50,
+    marginBottom: Constants.statusBarHeight + 50,
+    borderRadius: 10,
+    width: 300
+  },
+  titulo: {
+    fontSize: 45,
+  },
+  subTitulo: {
+    fontSize: 20,
+  },
+  cor: {
+    color: "white",
+  },
 });

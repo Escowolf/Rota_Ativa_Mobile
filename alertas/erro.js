@@ -2,7 +2,7 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Button } from "@react-native-material/core";
 import Constants from 'expo-constants';
 
-export default function Index({ navigation }) {
+export default function Erro({ navigation }) {
   return (
       <View style={styles.container}>
         <ImageBackground
@@ -10,33 +10,21 @@ export default function Index({ navigation }) {
         resizeMode="cover"
         style={styles.background}>
 
-        <Image style={styles.image} source={require('../assets/logo.png')}/>
+        <Image style={styles.image} source={require('../assets/erro.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor]}>
-            Bem-vindo(a) ao RotaAtiva
-          </Text>
-          <Text style={[styles.subTitulo, styles.cor]}>
-            O aplicativo para todos
+          <Text Text style={[styles.titulo, styles.cor]}>
+            Erro ao tentar recuperar senha, tente novamente
           </Text>
         </View>
 
         <Button 
-          tintColor="#fff" 
-          style={[styles.button, styles.login]} 
-          onPress={() =>
-            navigation.navigate('Sucesso')
-          } 
-          title="Entrar"
-          />
-
-        <Button 
-          tintColor="#fff" 
+          tintColor="#FF647C" 
           style={[styles.button, styles.cadastro]} 
           onPress={() =>
-            navigation.navigate('Erro')
+            navigation.navigate('Cadastro')
           } 
-          title="Cadastrar"
+          title="Tente Novamente"
         />
         
         </ImageBackground>
@@ -54,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight + 40
   },
   button:{
-    backgroundColor: '#1CA9A9',
+    backgroundColor: '#D9D9D9',
     marginBottom:10,
     width: 300,
     position:"absolute"
@@ -62,6 +50,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     width: '100%'
   },
   cabecalho: {
