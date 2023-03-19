@@ -26,10 +26,10 @@ export default function LoginView({ navigation }) {
          contentContainerStyle={{flex:1}}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo, styles.cor]}>
+            <Text Text style={[styles.titulo, styles.cor, styles.font]}>
               Login
             </Text>
-            <Text style={[styles.subTitulo, styles.cor]}>
+            <Text style={[styles.subTitulo, styles.cor, styles.font]}>
               Faça login na sua Conta
             </Text>
           </View>
@@ -51,7 +51,7 @@ export default function LoginView({ navigation }) {
           </View>
           <Button
             tintColor="#fff"
-            style={styles.button}
+            style={[styles.button, styles.font]}
             onPress={handleSubmit(onSubmit)}
             title="Logar"
           />
@@ -95,4 +95,7 @@ const styles = StyleSheet.create({
   cor: {
     color: "white",
   },
+  font:{
+    fontFamily: 'Poppins-Regular'
+  }
 });

@@ -13,14 +13,14 @@ export default function Erro({ navigation }) {
         <Image style={styles.image} source={require('../assets/erro.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text Text style={[styles.titulo, styles.cor]}>
+          <Text Text style={[styles.titulo, styles.cor, styles.font]}>
             Erro ao tentar recuperar senha, tente novamente
           </Text>
         </View>
 
         <Button 
           tintColor="#FF647C" 
-          style={[styles.button, styles.cadastro]} 
+          style={[styles.button, styles.cadastro, styles.font]} 
           onPress={() =>
             navigation.navigate('Cadastro')
           } 
@@ -71,5 +71,8 @@ const styles = StyleSheet.create({
   },
   cadastro: {
     bottom: 25
+  },
+  font:{
+    fontFamily: 'Poppins-Regular'
   }
 });

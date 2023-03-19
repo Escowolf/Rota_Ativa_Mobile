@@ -13,17 +13,17 @@ export default function Index({ navigation }) {
         <Image style={styles.image} source={require('../assets/logo.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor]}>
+          <Text style={[styles.titulo, styles.cor, styles.font]}>
             Bem-vindo(a) ao RotaAtiva
           </Text>
-          <Text style={[styles.subTitulo, styles.cor]}>
+          <Text style={[styles.subTitulo, styles.cor, styles.font]}>
             O aplicativo para todos
           </Text>
         </View>
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.login]} 
+          style={[styles.button, styles.login, styles.font]} 
           onPress={() =>
             navigation.navigate('Sucesso')
           } 
@@ -32,7 +32,7 @@ export default function Index({ navigation }) {
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.cadastro]} 
+          style={[styles.button, styles.cadastro, styles.font]} 
           onPress={() =>
             navigation.navigate('Erro')
           } 
@@ -82,5 +82,8 @@ const styles = StyleSheet.create({
   },
   cadastro: {
     bottom: 25
+  },
+  font:{
+    fontFamily: 'Poppins-Regular'
   }
 });

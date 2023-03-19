@@ -13,14 +13,14 @@ export default function Sucesso({ navigation }) {
         <Image style={styles.image} source={require('../assets/sucesso.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor]}>
+          <Text style={[styles.titulo, styles.cor, styles.font]}>
             Senha recuperada com sucesso!
           </Text>
         </View>
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.cadastro]} 
+          style={[styles.button, styles.cadastro, styles.font]} 
           onPress={() =>
             navigation.navigate('Login')
           } 
@@ -71,5 +71,8 @@ const styles = StyleSheet.create({
   },
   cadastro: {
     bottom: 25
+  },
+  font:{
+    fontFamily: 'Poppins-Regular'
   }
 });

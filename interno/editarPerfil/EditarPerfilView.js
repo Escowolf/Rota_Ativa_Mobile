@@ -1,19 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Alert, Image, StyleSheet, Text, View, ScrollView } from "react-native";
 import TextField from "../../components/TextField";
 import { useForm } from "react-hook-form";
 import { Button } from "@react-native-material/core";
 import EditarPerfilViewModel from "./EditarPerfilViewModel";
+import VagasService from "../../service/vagasService/vagasService";
 
 export default function EditarPerfilView({ navigation }) {
   const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
     EditarPerfilViewModel();
 
+  const [dados, setDados] = useState();  
+  const vagasService = new VagasService();
+  useEffect(() => {
+    vagasService.getVagas().then((resp) => {
+      console.log(resp.data);
+    })
+  }, [])
+
   return (
     <ScrollView style={styles.con}>
       <View style={styles.container}>
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor]}>Edite seu Perfil</Text>
+          <Text style={[styles.titulo, styles.cor, styles.font]}>Edite seu Perfil</Text>
         </View>
         <TextField
           label={"Nome Completo"}
@@ -43,7 +52,7 @@ export default function EditarPerfilView({ navigation }) {
         />
         <Button
           tintColor="#535353"
-          style={styles.button}
+          style={[styles.button, styles.font]}
           onPress={handleSubmit(onSubmit)}
           title="Atualizar"
         />
@@ -78,4 +87,7 @@ const styles = StyleSheet.create({
   cor: {
     color: "white",
   },
+  font:{
+    fontFamily: 'Poppins-Regular'
+  }
 });

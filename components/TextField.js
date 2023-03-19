@@ -5,7 +5,7 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 export default function TextField({ label, icon, ...inputProps }) {
   return (
     <View style={styles.textField}>
-      <Text style={styles.text}>{label}</Text>
+      <Text style={[styles.text, styles.font]}>{label}</Text>
       <TextInput
         leading={(props) => <Icon name={icon} {...props} />}
         style={styles.textInput}
@@ -24,4 +24,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 17
   },
+  font:{
+    fontFamily: 'Poppins-Regular'
+  }
 });
