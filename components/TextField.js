@@ -7,7 +7,7 @@ import AppLoading from "expo-app-loading";
 export default function TextField({ label, icon, ...inputProps }) {
 
   let [fontLoaded] = useFonts({
-    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+    'Poppins-Regular' : require('../fonts/Poppins/Poppins-Regular.ttf')
   })
 
 
