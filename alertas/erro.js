@@ -1,8 +1,20 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Button } from "@react-native-material/core";
 import Constants from 'expo-constants';
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function Erro({ navigation }) {
+
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
+
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
+  }
+
   return (
       <View style={styles.container}>
         <ImageBackground

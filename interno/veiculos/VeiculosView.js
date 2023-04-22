@@ -19,8 +19,15 @@ import {
   TextInput,
 } from "@react-native-material/core";
 import VeiculosViewModel from "./VeiculosViewModel";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function VeiculosView({ navigation }) {
+
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
+
   const {
     setValue,
     handleSubmit,
@@ -30,6 +37,10 @@ export default function VeiculosView({ navigation }) {
     isLoading,
     setIsLoading,
   } = VeiculosViewModel();
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
+  }
 
   return (
     <View style={styles.con}>

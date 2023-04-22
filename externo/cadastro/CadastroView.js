@@ -12,11 +12,20 @@ import TextField from "../../components/TextField";
 import { Button } from "@react-native-material/core";
 import CadastroViewModel from "./CadastroViewModel";
 import Constants from "expo-constants";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function CadastroView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
-    CadastroViewModel();
+  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } = CadastroViewModel();
 
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
+
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
+  }
   return (
     <View style={styles.con}>
       <ImageBackground

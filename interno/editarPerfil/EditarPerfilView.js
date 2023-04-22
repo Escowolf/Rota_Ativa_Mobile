@@ -5,19 +5,23 @@ import { useForm } from "react-hook-form";
 import { Button } from "@react-native-material/core";
 import EditarPerfilViewModel from "./EditarPerfilViewModel";
 import VagasService from "../../service/vagasService/vagasService";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function EditarPerfilView({ navigation }) {
   const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
     EditarPerfilViewModel();
 
   const [dados, setDados] = useState();  
-  const vagasService = new VagasService();
-  useEffect(() => {
-    vagasService.getVagas().then((resp) => {
-      console.log(resp.data);
-    })
-  }, [])
 
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
+
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
+  }
   return (
     <ScrollView style={styles.con}>
       <View style={styles.container}>

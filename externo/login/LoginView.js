@@ -9,11 +9,20 @@ import { Button } from "@react-native-material/core";
 import TextField from "../../components/TextField";
 import LoginViewModel from "./LoginViewModel";
 import Constants from "expo-constants";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function LoginView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
-    LoginViewModel(navigation);
+  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } = LoginViewModel(navigation);
 
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
+
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
+  }
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -96,6 +105,5 @@ const styles = StyleSheet.create({
     color: "white",
   },
   font:{
-    fontFamily: 'Poppins-Regular'
   }
 });

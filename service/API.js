@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://viacep.com.br/ws"
+    baseURL: "https://rota-ativa-pads.escowolf.repl.co/"
 })
 
 export default API;

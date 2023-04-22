@@ -8,8 +8,14 @@ import dados2 from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./MapViewModel";
 import Constants from 'expo-constants';
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function Map({ navigation }) {
+
+  let [fontLoaded] = useFonts({
+    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
+  })
 
   const {
     regiao, 
@@ -37,8 +43,7 @@ export default function Map({ navigation }) {
     })
   }
 
-  //const GOOGLE_MAPS_APIKEY = "AIzaSyDBscTlHcyJ5FTZ5
-  //Dlw7-ojc3LPhFfbAuY";
+  const GOOGLE_MAPS_APIKEY = "AIzaSyDBscTlHcyJ5FTZ5Dlw7-ojc3LPhFfbAuY";
 
   function closeCard(e){
     if (e.nativeEvent.action !== 'marker-press') {
@@ -51,6 +56,11 @@ export default function Map({ navigation }) {
     } else {
       
     }
+  }
+
+
+  if(!fontLoaded){
+    return(<AppLoading/>)
   }
 
   function renderCard(){
