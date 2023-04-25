@@ -105,5 +105,6 @@ const styles = StyleSheet.create({
     color: "white",
   },
   font:{
+    fontFamily: 'Poppins-Regular'
   }
 });

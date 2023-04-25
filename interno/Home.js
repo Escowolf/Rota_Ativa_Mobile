@@ -6,6 +6,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import VeiculosView from "./veiculos/VeiculosView";
 import HistoricoView from "./historico/HistoricoView";
 import EditarPerfilView from "./editarPerfil/EditarPerfilView";
+import EstacionarView from "./estacionar/EstacionarView";
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -52,6 +53,8 @@ export default function Home({ navigation }) {
 
       <Tab.Screen 
         name="Perfil"
+
+
         options={{
           tabBarLabel: 'Perfil',
           tabBarIcon: ({ color }) => (
@@ -60,7 +63,7 @@ export default function Home({ navigation }) {
         }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-            <HomeStack.Screen name="HistoricoView" component={HistoricoView} />
+            <HomeStack.Screen name="HistoricoView" component={EstacionarView} />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>
