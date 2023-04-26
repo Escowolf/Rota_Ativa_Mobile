@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Text,
   View,
   ScrollView,
@@ -12,14 +11,10 @@ import {
 } from "@react-native-material/core";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from "react";
-import { useFonts } from 'expo-font';
 import HistoricoService from "../../service/historicoService/historicoService";
-import AppLoading from "expo-app-loading";
+import styles from './stylesHistorico.js'
 
 export default function HistoricoView({ navigation }) {
-  let [fontLoaded] = useFonts({
-      'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
-  })  
 
   const [historico, setHistorico] = useState([]);
 
@@ -32,9 +27,6 @@ export default function HistoricoView({ navigation }) {
   }, [])
   
 
-  if(!fontLoaded){
-    return(<AppLoading/>)
-  }
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -92,44 +84,3 @@ export default function HistoricoView({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  con: {
-    backgroundColor: "#027373",
-    flex: 1,
-  },
-  container: {
-    alignItems: "center",
-  },
-  background: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  cabecalho: {
-    marginTop: 50,
-    marginBottom: 20,
-    borderRadius: 10,
-    padding: 10,
-  },
-  cabecalho1: {
-    backgroundColor: "#F2E7DC",
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
-  },
-  cabecalho2: {
-    marginTop: 10,
-    borderRadius: 10,
-  },
-  titulo: {
-    fontSize: 25,
-    color: "#fff",
-  },
-  button: {
-    backgroundColor: "#A9D9D0",
-    marginBottom: 10,
-  },
-  font:{
-    fontFamily: 'Poppins-Regular'
-  }
-});

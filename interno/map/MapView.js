@@ -1,21 +1,14 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
-import { useState } from "react";
 import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
 import dados from "../../dados/pontos.json";
 import dados2 from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./MapViewModel";
-import Constants from 'expo-constants';
-import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
 
 export default function Map({ navigation }) {
 
-  let [fontLoaded] = useFonts({
-    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
-  })
 
   const {
     regiao, 
@@ -58,10 +51,6 @@ export default function Map({ navigation }) {
     }
   }
 
-
-  if(!fontLoaded){
-    return(<AppLoading/>)
-  }
 
   function renderCard(){
     return (
@@ -144,15 +133,3 @@ export default function Map({ navigation }) {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,    
-    position: "relative",
-    paddingTop: Constants.statusBarHeight
-  },
-  map: {
-    width: "100%",
-    height: "80%",
-  },
-});

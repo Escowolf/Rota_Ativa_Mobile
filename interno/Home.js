@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Map from "./map/MapView";
@@ -71,19 +70,3 @@ export default function Home({ navigation }) {
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#027373",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    margin: 100,
-  },
-  button: {
-    backgroundColor: "#A9D9D0",
-    marginBottom: 10,
-  },
-});

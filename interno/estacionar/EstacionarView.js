@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
-import { Alert, Image, StyleSheet, Text, View, ImageBackground, ScrollView } from "react-native";
-import TextField from "../../components/TextField";
+import {  useState } from "react";
+import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { Button } from "@react-native-material/core";
-import VagasService from "../../service/vagasService/vagasService";
-import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
 import EstacionarViewModel from "./EstacionarViewModel";
 import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
-import Constants from "expo-constants";
 import {
   Flex,
   Icon,
   IconComponentProvider,
 } from "@react-native-material/core";
+import styles from './stylesEstacionar.js'
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function EstacionarView({ navigation }) {
   const { setValue, handleSubmit, onSubmit} =
@@ -22,14 +19,6 @@ export default function EstacionarView({ navigation }) {
   const [veiculo, setVeiculo] = useState("");
   const [credito, setCredito] = useState("one");
 
-  let [fontLoaded] = useFonts({
-    'Poppins-Regular' : require('../../fonts/Poppins/Poppins-Regular.ttf')
-  })
-
-
-  if(!fontLoaded){
-    return(<AppLoading/>)
-  }
   return (
     <View style={styles.con}>
     <ImageBackground
@@ -87,42 +76,3 @@ export default function EstacionarView({ navigation }) {
   </View>
   );
 }
-
-const styles = StyleSheet.create({
-  con: {
-    backgroundColor: "#027373",
-    flex: 1,
-  },
-  container: {
-    alignItems: "center",
-    marginTop: 20,
-  },
-  button: {
-    backgroundColor: "#1CA9A9",
-    width: 300,
-    position:"absolute",
-    bottom: 20
-  },
-  background: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  cabecalho: {
-    marginTop: Constants.statusBarHeight + 50,
-    marginBottom: Constants.statusBarHeight + 50,
-    borderRadius: 10,
-    width: 300
-  },
-  titulo: {
-    fontSize: 45,
-  },
-  subTitulo: {
-    fontSize: 20,
-  },
-  cor: {
-    color: "white",
-  },
-  font:{
-    fontFamily: 'Poppins-Regular'
-  }
-});
