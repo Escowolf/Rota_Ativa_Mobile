@@ -6,6 +6,10 @@ import VeiculosView from "./veiculos/VeiculosView";
 import HistoricoView from "./historico/HistoricoView";
 import EditarPerfilView from "./editarPerfil/EditarPerfilView";
 import EstacionarView from "./estacionar/EstacionarView";
+import AcompanharView from './acompanhamento/acompanharView';
+import SuporteView from './suporte/suporteView';
+import CompraCreditosView from './compraCreditos/compraCreditosView';
+import PagamentoView from './pagamento/PagamentoView';
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -62,7 +66,7 @@ export default function Home({ navigation }) {
         }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-            <HomeStack.Screen name="HistoricoView" component={EstacionarView} />
+            <HomeStack.Screen name="HistoricoView" component={PagamentoView } />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>

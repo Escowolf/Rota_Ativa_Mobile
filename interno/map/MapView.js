@@ -6,6 +6,7 @@ import dados from "../../dados/pontos.json";
 import dados2 from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./MapViewModel";
+import styles from './stylesMap.js'
 
 export default function Map({ navigation }) {
 

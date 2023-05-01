@@ -11,11 +11,11 @@ export default StyleSheet.create({
       alignItems: "center",
       marginTop: 20,
     },
-    button: {
-      backgroundColor: "#1CA9A9",
-      width: 300,
-      position:"absolute",
-      bottom: 20
+    button:{
+        backgroundColor: '#1CA9A9',
+        marginBottom:10,
+        width: 300,
+        position:"absolute"
     },
     background: {
       flex: 1,
@@ -41,13 +41,19 @@ export default StyleSheet.create({
       marginTop: 20
     },
     backgroundCard:{
-      paddingVertical: 10,
-      paddingHorizontal: 15,
-      borderRadius: 5,
-      backgroundColor: "#464646"
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        borderRadius: 5,
+        backgroundColor: "#464646"
     },
     corInfo:{
-      color:"#BEBEBE"
+        color:"#BEBEBE"
+    },
+    tempo:{
+        bottom: 75
+    },
+    sair: {
+        bottom: 25
     }
   });
   
