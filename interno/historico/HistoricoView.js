@@ -12,7 +12,8 @@ import {
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from "react";
 import HistoricoService from "../../service/historicoService/historicoService";
-import styles from './stylesHistorico.js'
+import styles from './stylesHistorico.js';
+import pessoa from "../../dados/pessoas.json";
 
 export default function HistoricoView({ navigation }) {
 
@@ -44,9 +45,9 @@ export default function HistoricoView({ navigation }) {
             </Text>
           </View>
 
-          {historico.map((h) =>{
+          {/* {historico.map((h,k) =>{
             return (
-              <Flex style={styles.cabecalho1} center>
+              <Flex key={k} style={styles.cabecalho1} center>
                 <Flex direction="row" center h={50}>
                   <IconComponentProvider IconComponent={MaterialCommunityIcons}>
                     <Icon name="map-marker" size={24} color="#263238" />
@@ -77,7 +78,43 @@ export default function HistoricoView({ navigation }) {
                 </Flex>
               </Flex>
             )
+          })} */}
+
+          {pessoa[0].historico.map((h,k) =>{
+            return (
+              <Flex key={k} style={styles.cabecalho1} center>
+                <Flex direction="row" center h={50}>
+                  <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+                    <Icon name="map-marker" size={24} color="#263238" />
+                  </IconComponentProvider>
+                  <Text style={styles.font}>{h.local.rua_avenida}, {h.local.bairro}</Text>
+                </Flex>
+                <Flex style={styles.cabecalho2} w={300} center direction="row">
+                  <Flex center w={100}>
+                    <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+                      <Icon name="calendar" size={24} color="#263238" />
+                    </IconComponentProvider>
+                    <Text style={[styles.subTitulo, styles.cor, styles.font]}>{h.dia}</Text>
+                  </Flex>
+
+                  <Flex center w={100}>
+                    <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+                      <Icon name="clock" size={24} color="#263238" />
+                    </IconComponentProvider>
+                    <Text style={[styles.subTitulo, styles.cor, styles.font]}>{h.horarioInicial}:00:00</Text>
+                  </Flex>
+
+                  <Flex center w={100}>
+                    <IconComponentProvider IconComponent={MaterialCommunityIcons}>
+                      <Icon name="cash" size={24} color="#263238" />
+                    </IconComponentProvider>
+                    <Text style={[styles.subTitulo, styles.cor, styles.font]}>R$ {h.tickets}0,00</Text>
+                  </Flex>
+                </Flex>
+              </Flex>
+            )
           })}
+
 
         </ScrollView>
       </ImageBackground>

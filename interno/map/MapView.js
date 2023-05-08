@@ -2,8 +2,7 @@ import { SafeAreaView, View } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
-import dados from "../../dados/pontos.json";
-import dados2 from "../../dados/areas.json";
+import dados from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./MapViewModel";
 import styles from './stylesMap.js'
@@ -21,16 +20,19 @@ export default function Map({ navigation }) {
     setCard, 
     styleMap, 
     setStyleMap,
-    userLocation
+    userLocation,
+    endereco,
+    setEndereco
   } = MapViewModel();
 
   function novaRota(){
     userLocation();
   }
   
-  function rota(destino) {
-    setCard(true);
+  function rota(destino, vaga) {
+    setEndereco(`${vaga.rua_avenida} - ${vaga.Bairro}`)
     setDestino(destino.coordinate);
+    setCard(true);
     setStyleMap({
       width: "100%",
       height: "80%",
@@ -58,7 +60,7 @@ export default function Map({ navigation }) {
       <Card style={{ height:"20%"}}>
         <Card.Content>
           <List.Item
-            title="Vaga 1"
+            title={endereco}
             description="Regra vaga ...."
             left={() => <IconButton icon="car" size={30} />}
             right={() => 
@@ -66,7 +68,7 @@ export default function Map({ navigation }) {
                       <Button onPress={() => novaRota()}>
                         Rota
                       </Button>
-                      <Button  onPress={() => navigation.navigate('VeiculosView', {name: 'Jane'})} 
+                      <Button  onPress={() => navigation.navigate('EstacionarView', {vaga:endereco })} 
                                mode="contained"
                       >
                         Estacionar
@@ -84,19 +86,17 @@ export default function Map({ navigation }) {
       <Marker
         image={require("../../assets/gps.png")}
         key={i}
-        coordinate={{
-          latitude: x.latitude,
-          longitude: x.longitude,
-        }}
-        onPress={(e) => rota(e.nativeEvent)}
+        coordinate={x.path[0]}
+        onPress={(e) => rota(e.nativeEvent, x)}
       />
     ));
   }
 
   function renderAreas() {
-    return dados2.map((d) => {
+    return dados.map((d, x) => {
       return (
         <Polyline
+          key={x}
           coordinates={d.path}
           strokeColor="#027373"
           strokeWeight={10}

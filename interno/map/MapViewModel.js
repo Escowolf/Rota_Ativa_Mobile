@@ -15,6 +15,7 @@ export default function MapViewModel() {
     width: "100%",
     height: "100%",
   });
+  const [endereco, setEndereco] = useState();
 
   const [isLoading, setIsLoading] = useState();
 
@@ -45,6 +46,8 @@ export default function MapViewModel() {
     styleMap, 
     setStyleMap,
     userLocation,
-    isLoading
+    isLoading,
+    endereco,
+    setEndereco
   };
 }

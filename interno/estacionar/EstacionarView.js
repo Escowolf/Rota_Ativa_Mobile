@@ -6,14 +6,26 @@ import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
 import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
 import styles from "./stylesEstacionar.js";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import pessoa from "../../dados/pessoas.json";
 
-export default function EstacionarView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit } = EstacionarViewModel();
+export default function EstacionarView({route, navigation }) {
+  const { 
+    register,
+    setValue,
+    handleSubmit,
+    onSubmit,
+    isLoading,
+    setIsLoading,
+    dados,
+    setDados,
+    veiculo,
+    setVeiculo,
+    credito,
+    setCredito,
+    custoTempo,
+    setCustoTempo} = EstacionarViewModel();
 
-  const [dados, setDados] = useState();
-  const [veiculo, setVeiculo] = useState("");
-  const [credito, setCredito] = useState("1");
-
+    const {vaga} = route.params 
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -44,11 +56,12 @@ export default function EstacionarView({ navigation }) {
               style={{backgroundColor: '#fff'}} 
               onValueChange={(itemValue) => setVeiculo(itemValue)}
             >
-              <Select.Item label="UX Research" value="ux" />
-              <Select.Item label="Web Development" value="web" />
-              <Select.Item label="Cross Platform Development" value="cross" />
-              <Select.Item label="UI Designing" value="ui" />
-              <Select.Item label="Backend Development" value="backend" />
+
+              {pessoa[0].veiculos.map((x,k) => {
+                return (
+                  <Select.Item key={k} label={`Placa: ${x.placa}`} value= {x.placa} />
+                )
+              })}
             </Select>
 
             
@@ -62,7 +75,7 @@ export default function EstacionarView({ navigation }) {
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>Rua x, Aldeota</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>{vaga}</Text>
                 </Flex>
             </Flex>
 
@@ -76,7 +89,7 @@ export default function EstacionarView({ navigation }) {
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>2:00hr</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>{custoTempo.tempo}:00hr</Text>
                 </Flex>
             </Flex>
 
@@ -90,7 +103,7 @@ export default function EstacionarView({ navigation }) {
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>R$ 20,00</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>R$ {custoTempo.custo},00</Text>
                 </Flex>
             </Flex>
             
@@ -125,7 +138,7 @@ export default function EstacionarView({ navigation }) {
           <Button
             tintColor="#fff"
             style={[styles.button, styles.font]}
-            onPress={handleSubmit(onSubmit)}
+            onPress={() => navigation.navigate('Sucesso', {page: 'Map', mensagem: "Voltar"})}
             title="Estacionar"
           />
         </ScrollView>

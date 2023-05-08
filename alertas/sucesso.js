@@ -1,8 +1,17 @@
 import { Image, ImageBackground, Text, View } from "react-native";
 import { Button } from "@react-native-material/core";
 import styles from "./stylesAlertas.js";
+import { useEffect, useState } from "react";
 
-export default function Sucesso({ navigation }) {
+export default function Sucesso({route, navigation }) {
+
+  const [page, setPage] = useState();
+  const [mensagem, setMensagem] = useState();
+
+  useEffect(() => {
+    setPage(route.params.page);
+    setMensagem(route.params.mensagem);
+  }, [route])
 
   return (
     <View style={styles.container}>
@@ -22,8 +31,8 @@ export default function Sucesso({ navigation }) {
         <Button
           tintColor="#fff"
           style={[styles.buttonSucess, styles.cadastro, styles.font]}
-          onPress={() => navigation.navigate("Login")}
-          title="Entrar no Aplicativo"
+          onPress={() => navigation.navigate(page)}
+          title={mensagem}
         />
       </ImageBackground>
     </View>

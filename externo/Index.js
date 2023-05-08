@@ -26,7 +26,7 @@ export default function Index({ navigation }) {
           tintColor="#fff" 
           style={[styles.button, styles.login, styles.font]} 
           onPress={() =>
-            navigation.navigate('Sucesso')
+            navigation.navigate('Sucesso', {page: "Login", mensagem: "Login"})
           } 
           title="Entrar"
           />

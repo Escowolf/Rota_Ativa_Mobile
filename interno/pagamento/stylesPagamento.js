@@ -48,6 +48,9 @@ export default StyleSheet.create({
       alignSelf:"center"
     },
     font:{
+    },
+    numeroCartao:{
+      fontSize: 18
     }
   });
   

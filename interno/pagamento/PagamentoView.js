@@ -12,6 +12,7 @@ import {
 } from "@react-native-material/core";
 import styles from "./stylesPagamento.js";
 import PagamentoViewModel from "./PagamentoViewModel.js";
+import pessoa from "../../dados/pessoas.json";
 
 export default function PagamentoView({ navigation }) {
   const {
@@ -41,32 +42,41 @@ export default function PagamentoView({ navigation }) {
             </Text>
           </View>
 
-          <Stack
-            style={{
-              width: 300,
-              height: 150,
-              backgroundColor: "#888",
-              borderRadius: 10,
-            }}
-            fill
-            center
-            spacing={4}
-          >
-            <Flex direction="row" w={350} center>
-              <Text style={[styles.titulo, styles.cor, styles.font]}>
-                MasterCard
-              </Text>
-              <Image source={require("../../assets/mastercard.png")} />
-            </Flex>
-            <Flex direction="column" style={{ padding: 20 }} w={350}>
-              <Text style={[styles.titulo, styles.cor, styles.font]}>
-                **** 0000
-              </Text>
-              <Text style={[styles.titulo, styles.cor, styles.font]}>
-                Teste J Lima
-              </Text>
-            </Flex>
-          </Stack>
+          {
+            pessoa[0].cartões.map((x,k)=>{
+              return (
+              <Stack
+                key={k}
+                style={{
+                  width: 300,
+                  height: 150,
+                  backgroundColor: "#888",
+                  borderRadius: 10,
+                }}
+                fill
+                center
+                spacing={4}
+              >
+                <Flex direction="row" w={350} center>
+                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                    {x.bandeira}
+                  </Text>
+                  <Image source={require("../../assets/mastercard.png")} />
+                </Flex>
+                <Flex direction="column" style={{ padding: 20 }}>
+                  <Text style={[styles.numeroCartao, styles.cor, styles.font]}>
+                   {x.numero}
+                  </Text>
+                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                    {x.nome}
+                  </Text>
+                </Flex>
+              </Stack>
+              )
+            })
+          }
+
+
 
           <View style={{ marginTop: 50 }}>
             <Text Text style={[{ fontSize: 25, color: "#fff" }, styles.font]}>
@@ -86,7 +96,7 @@ export default function PagamentoView({ navigation }) {
               center
             >
               <Flex style={{ padding: 10 }}>
-                <Text style={{color:"#fff", fontSize: 20, fontWeight:"bold"}}>5 cartões disponiveis</Text>
+                <Text style={{color:"#fff", fontSize: 20, fontWeight:"bold"}}>{pessoa[0].tickets} cartões disponiveis</Text>
               </Flex>
             </Stack>
 
@@ -98,7 +108,7 @@ export default function PagamentoView({ navigation }) {
               title="Comprar cartão"
               loading={isLoading}
               loadingIndicatorPosition="overlay"
-              onPress={() => setVisible(true)}
+              onPress={() => navigation.navigate('CompraCreditosView', {name: 'Jane'})}
             />
           </Flex>
 

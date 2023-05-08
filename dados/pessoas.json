@@ -1,0 +1,89 @@
+[
+    {
+        "id": 1,
+        "nome": "Teste Junior",
+        "email": "testej@email.com",
+        "senha": "1234",
+        "cpf": "12345678911",
+        "tickets": 6,
+        "veiculos" : [
+            {
+                "placa": "ASQS4231",
+                "renavan": "46548914",
+                "ano": "2014",
+                "cor": "vermelho"
+            },
+            {
+                "placa": "ZXWQ9215",
+                "renavan": "94354615",
+                "ano": "2020",
+                "cor": "cinza"
+            }
+        ],
+        "cartões":[
+            {
+                "bandeira": "mastercard",
+                "numero": "124867345764316598",
+                "cvc": "578",
+                "nome": "Teste J"
+            }
+        ],
+        "historico": [
+            {
+                "local":  {
+                    "id": 1,
+                    "nome_vaga": "Vaga 1",
+                    "rua_avenida": "Av. 666",
+                    "bairro": "Inferno",
+                    "path": [
+                      {
+                        "latitude": -3.726077,
+                        "longitude": -38.495077
+                      },
+                      {
+                        "latitude": -3.725595,
+                        "longitude": -38.491622
+                      }
+                    ]
+                  },
+                "dia": "25/05/2022",
+                "tickets": 2,
+                "veiculo": {
+                    "placa": "ZXWQ9215",
+                    "renavan": "94354615",
+                    "ano": "2020",
+                    "cor": "cinza"
+                },
+                "horarioInicial": "12:00:00"
+            },
+            {
+                "local":  {
+                    "id": 2,
+                    "nome_vaga": "Vaga 2",
+                    "rua_avenida": "Av. X",
+                    "bairro": "7 Palmos abaixo",
+                    "path": [
+                      {
+                        "latitude": -3.72658,
+                        "longitude": -38.491326
+                      },
+                      {
+                        "latitude": -3.7256,
+                        "longitude": -38.491543
+                      }
+                    ]
+                  },
+                "dia": "20/05/2022",
+                "tickets": 1,
+                "veiculo": {
+                    "placa": "ASQS4231",
+                    "renavan": "46548914",
+                    "ano": "2014",
+                    "cor": "vermelho"
+                },
+                "horarioInicial": "11:00:00"
+            }
+        ]
+
+    }
+]

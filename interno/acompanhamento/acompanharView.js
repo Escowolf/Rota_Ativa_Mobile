@@ -103,9 +103,7 @@ export default function AcompanharView({ navigation }) {
         <Button 
           tintColor="#fff" 
           style={[styles.button, styles.sair, styles.font]} 
-          onPress={() =>
-            navigation.navigate('Erro')
-          } 
+          onPress={() => navigation.navigate('HistoricoView', {name: 'Jane'})} 
           title="Sair da vaga"
         />
         </ScrollView>

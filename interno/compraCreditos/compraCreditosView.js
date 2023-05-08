@@ -146,7 +146,7 @@ export default function CompraCreditosView({ navigation }) {
                 borderRadius: 10,
                 marginTop: 20,
               }}
-              onPress={() => setVisible(true)}
+              onPress={() => navigation.navigate('AcompanharView', {name: 'Jane'})}
             >
               <Stack fill center spacing={4}>
                 <Flex direction="row" w={230} center>
@@ -186,7 +186,7 @@ export default function CompraCreditosView({ navigation }) {
           title="Suporte"
           loading={isLoading}
           loadingIndicatorPosition="overlay"
-          onPress={() => setVisible(true)}
+          onPress={() => navigation.navigate('SuporteView', {name: 'Jane'})}
         />
       </ImageBackground>
     </View>
