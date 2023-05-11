@@ -7,10 +7,12 @@ export default function Sucesso({route, navigation }) {
 
   const [page, setPage] = useState();
   const [mensagem, setMensagem] = useState();
+  const [button, setButton] = useState();
 
   useEffect(() => {
     setPage(route.params.page);
     setMensagem(route.params.mensagem);
+    setButton(route.params.button);
   }, [route])
 
   return (
@@ -24,7 +26,7 @@ export default function Sucesso({route, navigation }) {
 
         <View style={styles.cabecalho}>
           <Text style={[styles.titulo, styles.cor, styles.font]}>
-            Senha recuperada com sucesso!
+            {mensagem}
           </Text>
         </View>
 
@@ -32,7 +34,7 @@ export default function Sucesso({route, navigation }) {
           tintColor="#fff"
           style={[styles.buttonSucess, styles.cadastro, styles.font]}
           onPress={() => navigation.navigate(page)}
-          title={mensagem}
+          title={button}
         />
       </ImageBackground>
     </View>

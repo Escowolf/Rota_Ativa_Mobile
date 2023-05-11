@@ -95,7 +95,7 @@ export default function AcompanharView({ navigation }) {
           tintColor="#fff" 
           style={[styles.button, styles.tempo, styles.font]} 
           onPress={() =>
-            navigation.navigate('Sucesso')
+            navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})
           } 
           title="Adicionar + tempo"
           />
