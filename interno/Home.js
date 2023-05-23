@@ -12,6 +12,9 @@ import CompraCreditosView from './compraCreditos/compraCreditosView';
 import PagamentoView from './pagamento/PagamentoView';
 import Erro from '../alertas/erro';
 import Sucesso from '../alertas/sucesso';
+import InicioView from './inicio/inicioView';
+import PerfilView from './perfil/perfilView';
+import ConfirmarCompraView from './confirmaCompra/confirmaCompraView';
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -35,9 +38,11 @@ export default function Home({ navigation }) {
         }}>
         {() => (
           <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
+            <SettingsStack.Screen name="InicioView" component={InicioView} />
             <SettingsStack.Screen name="EditarPerfilView" component={EditarPerfilView} />
-            <HomeStack.Screen name="Erro" component={Erro} />
-            <HomeStack.Screen name="Sucesso" component={Sucesso} />
+            <SettingsStack.Screen name="Erro" component={Erro} />
+            <SettingsStack.Screen name="Sucesso" component={Sucesso} />
+            <SettingsStack.Screen name="VeiculosView" component={VeiculosView} />
           </SettingsStack.Navigator>
         )}
       </Tab.Screen>
@@ -72,6 +77,7 @@ export default function Home({ navigation }) {
         }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+            <HomeStack.Screen name="PerfilView" component={PerfilView} />
             <HomeStack.Screen name="PagamentoView" component={PagamentoView } />
             <HomeStack.Screen name="CompraCreditosView" component={CompraCreditosView} />
             <HomeStack.Screen name="AcompanharView" component={AcompanharView} />
@@ -79,6 +85,9 @@ export default function Home({ navigation }) {
             <HomeStack.Screen name="Erro" component={Erro} />
             <HomeStack.Screen name="Sucesso" component={Sucesso} />
             <HomeStack.Screen name="SuporteView" component={SuporteView} />
+            <HomeStack.Screen name="EditarPerfilView" component={EditarPerfilView} />
+            <HomeStack.Screen name="VeiculosView" component={VeiculosView} />
+            <HomeStack.Screen name="ConfirmarCompraView" component={ConfirmarCompraView} />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>

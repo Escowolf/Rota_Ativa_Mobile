@@ -26,7 +26,7 @@ export default function Index({ navigation }) {
           tintColor="#fff" 
           style={[styles.button, styles.login, styles.font]} 
           onPress={() =>
-            navigation.navigate('Sucesso', {page: "Login", mensagem: "Continue a logar", button:"Login"})
+            navigation.navigate('Login')
           } 
           title="Entrar"
           />
@@ -35,7 +35,7 @@ export default function Index({ navigation }) {
           tintColor="#fff" 
           style={[styles.button, styles.cadastro, styles.font]} 
           onPress={() =>
-            navigation.navigate('Erro')
+            navigation.navigate('Cadastro')
           } 
           title="Cadastrar"
         />

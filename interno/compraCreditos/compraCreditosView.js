@@ -175,7 +175,7 @@ export default function CompraCreditosView({ navigation }) {
                 title="Ok"
                 compact
                 variant="text"
-                onPress={handleSubmit(onSubmit)}
+                onPress={() => navigation.navigate('ConfirmarCompraView', {name: 'Jane'})}
               />
             </DialogActions>
           </Dialog>
