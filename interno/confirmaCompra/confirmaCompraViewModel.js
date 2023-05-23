@@ -3,9 +3,6 @@ import { useForm } from "react-hook-form";
 
 export default function ConfirmaCompraViewModel() {
   const { register, setValue, handleSubmit } = useForm();
-  const [isLoading, setIsLoading] = useState();
-
-  const [dados, setDados] = useState();
   const [cartao, setCartao] = useState("");
   const [formaPagamento, setFormaPagamento] = useState("1");
   const [custoTempo, setCustoTempo] = useState({
@@ -37,15 +34,9 @@ export default function ConfirmaCompraViewModel() {
     setValue,
     handleSubmit,
     onSubmit,
-    isLoading,
-    setIsLoading,
-    dados,
-    setDados,
     cartao,
     setCartao,
     formaPagamento,
-    setFormaPagamento,
-    custoTempo,
-    setCustoTempo
+    setFormaPagamento
   };
 }

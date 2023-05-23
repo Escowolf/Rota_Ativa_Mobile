@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, ImageBackground, Image } from "react-native";
+import { Text, View, ScrollView, ImageBackground } from "react-native";
 import {
   Flex,
   Pressable,
@@ -7,10 +7,9 @@ import {
   Dialog,
   DialogHeader,
   DialogContent,
-  DialogActions,
-  TextInput,
+  DialogActions
 } from "@react-native-material/core";
-import styles from "./stylesCompraCreditos.js";
+import styles from "./compraCreditosStyles.js";
 import CompraCreditosViewModel from "./compraCreditosViewModel.js";
 
 export default function CompraCreditosView({ navigation }) {
@@ -20,8 +19,6 @@ export default function CompraCreditosView({ navigation }) {
     visible,
     setVisible,
     onSubmit,
-    isLoading,
-    setIsLoading,
   } = CompraCreditosViewModel();
 
   return (
@@ -184,7 +181,6 @@ export default function CompraCreditosView({ navigation }) {
         <Button
           style={[styles.button, styles.font]}
           title="Suporte"
-          loading={isLoading}
           loadingIndicatorPosition="overlay"
           onPress={() => navigation.navigate('SuporteView', {name: 'Jane'})}
         />

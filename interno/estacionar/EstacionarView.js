@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { Button } from "@react-native-material/core";
-import EstacionarViewModel from "./EstacionarViewModel";
+import EstacionarViewModel from "./estacionarViewModel";
 import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
 import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
-import styles from "./stylesEstacionar.js";
+import styles from "./estacionarStyles.js";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import pessoa from "../../dados/pessoas.json";
 

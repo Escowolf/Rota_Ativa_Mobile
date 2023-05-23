@@ -2,15 +2,15 @@ import {
   ScrollView,
   View,
   ImageBackground,
-  Text,
+  Text
 } from "react-native";
 import { Button } from "@react-native-material/core";
 import TextField from "../../components/TextField";
 import LoginViewModel from "./LoginViewModel";
-import styles from './stylesLogin.js'
+import styles from './LoginStyles.js'
 
 export default function LoginView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } = LoginViewModel(navigation);
+  const { setValue, handleSubmit, onSubmit } = LoginViewModel(navigation);
 
   return (
     <View style={styles.con}>

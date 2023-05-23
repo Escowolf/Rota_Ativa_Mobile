@@ -1,7 +1,6 @@
 import { Text, View, ScrollView, ImageBackground, Image } from "react-native";
 import {
   Flex,
-  Pressable,
   Button,
   Stack,
   Dialog,
@@ -10,8 +9,8 @@ import {
   DialogActions,
   TextInput,
 } from "@react-native-material/core";
-import styles from "./stylesPagamento.js";
-import PagamentoViewModel from "./PagamentoViewModel.js";
+import styles from "./pagamentoStyles.js";
+import PagamentoViewModel from "./pagamentoViewModel.js";
 import pessoa from "../../dados/pessoas.json";
 
 export default function PagamentoView({ navigation }) {
@@ -20,9 +19,7 @@ export default function PagamentoView({ navigation }) {
     handleSubmit,
     visible,
     setVisible,
-    onSubmit,
-    isLoading,
-    setIsLoading,
+    onSubmit
   } = PagamentoViewModel();
 
   return (
@@ -106,7 +103,6 @@ export default function PagamentoView({ navigation }) {
                 alignSelf: "center",
               }}
               title="Comprar cartão"
-              loading={isLoading}
               loadingIndicatorPosition="overlay"
               onPress={() => navigation.navigate('CompraCreditosView', {name: 'Jane'})}
             />
@@ -157,7 +153,6 @@ export default function PagamentoView({ navigation }) {
         <Button
           style={[styles.button, styles.font]}
           title="Adicionar forma de pagamento"
-          loading={isLoading}
           loadingIndicatorPosition="overlay"
           onPress={() => setVisible(true)}
         />

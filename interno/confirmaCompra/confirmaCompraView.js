@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { Button } from "@react-native-material/core";
 import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
-import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
-import styles from "./stylesconfirmaCompra.js";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Flex } from "@react-native-material/core";
+import styles from "./confirmaCompraStyles.js";
 import pessoa from "../../dados/pessoas.json";
 import ConfirmaCompraViewModel from "./confirmaCompraViewModel";
 
@@ -14,16 +12,11 @@ export default function ConfirmarCompraView({route, navigation }) {
     setValue,
     handleSubmit,
     onSubmit,
-    isLoading,
-    setIsLoading,
-    dados,
-    setDados,
     cartao,
     setCartao,
     formaPagamento,
-    setFormaPagamento,
-    custoTempo,
-    setCustoTempo} = ConfirmaCompraViewModel();
+    setFormaPagamento
+  } = ConfirmaCompraViewModel();
 
     const {vaga} = route.params 
   return (

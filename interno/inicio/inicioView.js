@@ -4,15 +4,11 @@ import {
   Pressable,
   Button,
   Stack,
-  Dialog,
-  DialogHeader,
-  DialogContent,
-  DialogActions,
   IconComponentProvider,
   Icon,
 } from "@react-native-material/core";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import styles from "./stylesInicio.js";
+import styles from "./inicioStyles.js";
 import InicioViewModel from "./inicioViewModel.js";
 import pessoa from "../../dados/pessoas.json";
 
@@ -20,11 +16,7 @@ export default function InicioView({ navigation }) {
   const {
     setValue,
     handleSubmit,
-    visible,
-    setVisible,
     onSubmit,
-    isLoading,
-    setIsLoading,
   } = InicioViewModel();
 
   return (
@@ -99,7 +91,6 @@ export default function InicioView({ navigation }) {
           <Button
           style={[styles.buttonCommon, styles.font]}
           title="Meus cartões - creditos"
-          loading={isLoading}
           loadingIndicatorPosition="overlay"
           onPress={() => navigation.navigate("VeiculosView", { name: "Jane" })}
         />
@@ -109,7 +100,6 @@ export default function InicioView({ navigation }) {
         <Button
           style={[styles.button, styles.font]}
           title="Suporte"
-          loading={isLoading}
           loadingIndicatorPosition="overlay"
           onPress={() => navigation.navigate("VeiculosView", { name: "Jane" })}
         />

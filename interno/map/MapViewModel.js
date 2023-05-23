@@ -17,8 +17,6 @@ export default function MapViewModel() {
   });
   const [endereco, setEndereco] = useState();
 
-  const [isLoading, setIsLoading] = useState();
-
   const userLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -46,7 +44,6 @@ export default function MapViewModel() {
     styleMap, 
     setStyleMap,
     userLocation,
-    isLoading,
     endereco,
     setEndereco
   };

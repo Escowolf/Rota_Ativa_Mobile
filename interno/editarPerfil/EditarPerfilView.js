@@ -1,16 +1,13 @@
-import {  useState } from "react";
 import {Text, View, ScrollView } from "react-native";
 import TextField from "../../components/TextField";
 import { Button } from "@react-native-material/core";
-import EditarPerfilViewModel from "./EditarPerfilViewModel";
+import EditarPerfilViewModel from "./editarPerfilViewModel";
 import VagasService from "../../service/vagasService/vagasService";
-import styles from './stylesEditarPerfil.js'
+import styles from './editarPerfilStyles.js'
 
 export default function EditarPerfilView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } =
+  const { setValue, handleSubmit, onSubmit } =
     EditarPerfilViewModel();
-
-  const [dados, setDados] = useState();  
 
   return (
     <ScrollView style={styles.con}>

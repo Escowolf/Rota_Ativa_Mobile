@@ -12,7 +12,7 @@ import {
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from "react";
 import HistoricoService from "../../service/historicoService/historicoService";
-import styles from './stylesHistorico.js';
+import styles from './historicoStyles.js';
 import pessoa from "../../dados/pessoas.json";
 
 export default function HistoricoView({ navigation }) {

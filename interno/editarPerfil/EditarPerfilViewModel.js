@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 export default function EditarPerfilViewModel() {
   const { register, setValue, handleSubmit } = useForm();
-  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
     register("nome");
@@ -20,8 +19,6 @@ export default function EditarPerfilViewModel() {
     register,
     setValue,
     handleSubmit,
-    onSubmit,
-    isLoading,
-    setIsLoading
+    onSubmit
   };
 }

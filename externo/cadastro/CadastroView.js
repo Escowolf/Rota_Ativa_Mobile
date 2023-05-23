@@ -2,15 +2,15 @@ import {
   ImageBackground,
   ScrollView,
   Text,
-  View,
+  View
 } from "react-native";
 import TextField from "../../components/TextField";
 import { Button } from "@react-native-material/core";
 import CadastroViewModel from "./CadastroViewModel";
-import styles from './stylesCadastro.js'
+import styles from './CadastroStyles.js'
 
 export default function CadastroView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit, isLoading, setIsLoading } = CadastroViewModel();
+  const { setValue, handleSubmit, onSubmit } = CadastroViewModel();
 
   return (
     <View style={styles.con}>

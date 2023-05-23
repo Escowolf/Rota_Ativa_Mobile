@@ -1,19 +1,8 @@
 import { Text, View, ScrollView, ImageBackground } from "react-native";
 import {
-  Flex,
-  Pressable,
-  Button,
-  Stack,
-  Dialog,
-  DialogHeader,
-  DialogContent,
-  DialogActions,
-  IconComponentProvider,
-  Icon,
+  Button
 } from "@react-native-material/core";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import styles from "./stylesPerfil";
-import InicioViewModel from "./perfilViewModel.js";
+import styles from "./perfilStyles";
 
 export default function PerfilView({ navigation }) {
 

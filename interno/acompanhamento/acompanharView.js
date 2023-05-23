@@ -1,18 +1,13 @@
-import { useState } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { Button } from "@react-native-material/core";
-import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
+import { NativeBaseProvider } from "native-base";
 import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AcompanharViewModel from "./acompanharViewModel";
-import styles from './stylesAcompanhar'
+import styles from './acompanharStyles'
 
 export default function AcompanharView({ navigation }) {
   const { setValue, handleSubmit, onSubmit } = AcompanharViewModel();
-
-  const [dados, setDados] = useState();
-  const [veiculo, setVeiculo] = useState("");
-  const [credito, setCredito] = useState("1");
 
   return (
     <View style={styles.con}>

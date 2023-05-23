@@ -3,7 +3,7 @@ import {
   View,
   ScrollView,
   ImageBackground,
-  Image,
+  Image
 } from "react-native";
 import {
   Flex,
@@ -14,10 +14,10 @@ import {
   DialogHeader,
   DialogContent,
   DialogActions,
-  TextInput,
+  TextInput
 } from "@react-native-material/core";
-import VeiculosViewModel from "./VeiculosViewModel";
-import styles from './stylesVeiculos.js'
+import VeiculosViewModel from "./veiculosViewModel";
+import styles from './veiculosStyles.js'
 import pessoa from "../../dados/pessoas.json";
 
 export default function VeiculosView({ navigation }) {
@@ -28,9 +28,7 @@ export default function VeiculosView({ navigation }) {
     handleSubmit,
     visible,
     setVisible,
-    onSubmit,
-    isLoading,
-    setIsLoading,
+    onSubmit
   } = VeiculosViewModel();
 
   return (
@@ -141,7 +139,6 @@ export default function VeiculosView({ navigation }) {
         <Button
             style={[styles.button, styles.font]}
             title="Adicionar veiculos"
-            loading={isLoading}
             loadingIndicatorPosition="overlay"
             onPress={() => setVisible(true)}
           />

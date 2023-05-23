@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function CadastroViewModel() {
   const { register, setValue, handleSubmit } = useForm();
-  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
     register("nome");
@@ -22,8 +21,6 @@ export default function CadastroViewModel() {
     register,
     setValue,
     handleSubmit,
-    onSubmit,
-    isLoading,
-    setIsLoading,
+    onSubmit
   };
 }

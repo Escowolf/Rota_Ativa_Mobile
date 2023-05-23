@@ -1,11 +1,10 @@
 import { SafeAreaView, View } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
-import * as Location from "expo-location";
 import dados from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
-import MapViewModel from "./MapViewModel";
-import styles from './stylesMap.js'
+import MapViewModel from "./mapViewModel";
+import styles from './mapStyles.js'
 
 export default function Map({ navigation }) {
 

@@ -2,8 +2,7 @@ import {
     Text,
     View,
     ScrollView,
-    ImageBackground,
-    Image,
+    ImageBackground
 } from "react-native";
 import {
     Flex,
@@ -13,23 +12,16 @@ import {
     Dialog,
     DialogHeader,
     DialogContent,
-    DialogActions,
-    TextInput,
+    DialogActions
 } from "@react-native-material/core";
-import styles from './stylesSuporte.js'
+import styles from './suporteStyles.js'
 import SuporteViewModel from "./suporteViewModel.js";
   
   export default function SuporteView({ navigation }) {
   
-  
     const {
-      setValue,
-      handleSubmit,
       visible,
       setVisible,
-      onSubmit,
-      isLoading,
-      setIsLoading,
     } = SuporteViewModel();
   
     return (

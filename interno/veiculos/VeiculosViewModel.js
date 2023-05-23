@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 export default function VeiculosViewModel() {
     const [visible, setVisible] = useState(false);
-    const [isLoading, setIsLoading] = useState();
     const { register, setValue, handleSubmit } = useForm();
   
     useEffect(() => {
@@ -24,8 +23,6 @@ export default function VeiculosViewModel() {
     handleSubmit,
     visible,
     setVisible,
-    onSubmit,
-    isLoading,
-    setIsLoading
+    onSubmit
   };
 }
