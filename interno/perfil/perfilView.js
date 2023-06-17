@@ -1,11 +1,11 @@
 import { Text, View, ScrollView, ImageBackground } from "react-native";
-import {
-  Button
-} from "@react-native-material/core";
+import { Button } from "@react-native-material/core";
 import styles from "./perfilStyles";
+import PerfilViewModel from "./perfilViewModel";
+import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
 export default function PerfilView({ navigation }) {
-
+  const { user, loading } = PerfilViewModel();
 
   return (
     <View style={styles.con}>
@@ -24,43 +24,70 @@ export default function PerfilView({ navigation }) {
             </Text>
           </View>
 
-        <Button
-        style={[styles.buttonCommon, styles.font]}
-        title="Editar Perfil"
-        loadingIndicatorPosition="overlay"
-        onPress={() => navigation.navigate("EditarPerfilView")}
-        />
-         
-        <Button
-          style={[styles.buttonCommon, styles.font]}
-          title="Veiculos"
-          loadingIndicatorPosition="overlay"
-          onPress={() => navigation.navigate("VeiculosView")}
-        />
+          {loading ? (
+            <>
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Editar Perfil"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("EditarPerfilView", { user: user })
+                }
+              />
 
-        <Button
-          style={[styles.buttonCommon, styles.font]}
-          title="Historico"
-          loadingIndicatorPosition="overlay"
-          onPress={() => navigation.navigate("HistoricoView")}
-        />
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Acompanhar veiculo"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("AcompanharView", { user: user })
+                }
+              />
 
-        <Button
-          style={[styles.buttonCommon, styles.font]}
-          title="Pagamento"
-          loadingIndicatorPosition="overlay"
-          onPress={() => navigation.navigate("PagamentoView")}
-        />
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Veiculos"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("VeiculosView", { user: user })
+                }
+              />
 
-        <Button
-        style={[styles.buttonCommon, styles.font]}
-        title="Suporte"
-        loadingIndicatorPosition="overlay"
-        onPress={() => navigation.navigate("SuporteView")}
-        />
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Historico"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("HistoricoView", { user: user })
+                }
+              />
 
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Pagamento"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("PagamentoView", { user: user })
+                }
+              />
+
+              <Button
+                style={[styles.buttonCommon, styles.font]}
+                title="Suporte"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("SuporteView", { user: user })
+                }
+              />
+            </>
+          ) : (
+            <NativeBaseProvider>
+              <HStack space={8} justifyContent="center" alignItems="center">
+                <Spinner size="lg" color="emerald.500" />
+              </HStack>
+            </NativeBaseProvider>
+          )}
         </ScrollView>
-
       </ImageBackground>
     </View>
   );

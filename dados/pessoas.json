@@ -23,7 +23,7 @@
         "cartões":[
             {
                 "bandeira": "mastercard",
-                "numero": "124867345764316598",
+                "numero": "**** **** **** 7276",
                 "cvc": "578",
                 "nome": "Teste J"
             }

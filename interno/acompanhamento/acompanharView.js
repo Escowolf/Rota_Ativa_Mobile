@@ -86,19 +86,10 @@ export default function AcompanharView({ navigation }) {
 
           </NativeBaseProvider>
 
-          <Button 
-          tintColor="#fff" 
-          style={[styles.button, styles.tempo, styles.font]} 
-          onPress={() =>
-            navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})
-          } 
-          title="Adicionar + tempo"
-          />
-
         <Button 
           tintColor="#fff" 
           style={[styles.button, styles.sair, styles.font]} 
-          onPress={() => navigation.navigate('HistoricoView', {name: 'Jane'})} 
+          onPress={() => navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})} 
           title="Sair da vaga"
         />
         </ScrollView>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function EditarPerfilViewModel() {
+export default function EditarPerfilViewModel({route}) {
   const { register, setValue, handleSubmit } = useForm();
 
   useEffect(() => {

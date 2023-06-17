@@ -27,7 +27,7 @@ export default StyleSheet.create({
       width: 300
     },
     titulo: {
-      fontSize: 45,
+      fontSize: 35,
     },
     subTitulo: {
       fontSize: 20,

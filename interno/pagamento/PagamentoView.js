@@ -13,7 +13,7 @@ import styles from "./pagamentoStyles.js";
 import PagamentoViewModel from "./pagamentoViewModel.js";
 import pessoa from "../../dados/pessoas.json";
 
-export default function PagamentoView({ navigation }) {
+export default function PagamentoView({ navigation, route }) {
   const {
     setValue,
     handleSubmit,
@@ -73,8 +73,6 @@ export default function PagamentoView({ navigation }) {
             })
           }
 
-
-
           <View style={{ marginTop: 50 }}>
             <Text Text style={[{ fontSize: 25, color: "#fff" }, styles.font]}>
               Tickets
@@ -93,7 +91,7 @@ export default function PagamentoView({ navigation }) {
               center
             >
               <Flex style={{ padding: 10 }}>
-                <Text style={{color:"#fff", fontSize: 20, fontWeight:"bold"}}>{pessoa[0].tickets} cartões disponiveis</Text>
+                <Text style={{color:"#fff", fontSize: 20, fontWeight:"bold"}}>{route.params.user.ticket} cartões disponiveis</Text>
               </Flex>
             </Stack>
 
@@ -104,7 +102,7 @@ export default function PagamentoView({ navigation }) {
               }}
               title="Comprar cartão"
               loadingIndicatorPosition="overlay"
-              onPress={() => navigation.navigate('CompraCreditosView', {name: 'Jane'})}
+              onPress={() => navigation.navigate('CompraCreditosView', {user: route.params.user})}
             />
           </Flex>
 

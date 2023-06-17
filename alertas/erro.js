@@ -11,7 +11,7 @@ export default function Erro({route, navigation }) {
   useEffect(() => {
     setPage(route.params.page);
     setMensagem(route.params.mensagem);
-    setButton(route.parms.button);
+    setButton(route.params.button);
   }, [route])
 
 

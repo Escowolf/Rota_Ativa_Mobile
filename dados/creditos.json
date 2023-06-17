@@ -1,0 +1,22 @@
+[
+    {
+        "preco": 2,
+        "cartao": 1
+    },
+    {
+        "preco": 4,
+        "cartao": 2
+    },
+    {
+        "preco": 6,
+        "cartao": 3
+    },
+    {
+        "preco": 8,
+        "cartao": 4
+    },
+    {
+        "preco": 10,
+        "cartao": 5
+    }
+]

@@ -10,7 +10,7 @@ import LoginViewModel from "./LoginViewModel";
 import styles from './LoginStyles.js'
 
 export default function LoginView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit } = LoginViewModel(navigation);
+  const {validate, setValue, handleSubmit, onSubmit } = LoginViewModel(navigation);
 
   return (
     <View style={styles.con}>
@@ -36,8 +36,9 @@ export default function LoginView({ navigation }) {
             <TextField
               label={"Email"}
               placeholder={"Digite seu email"}
-              onChangeText={(text) => setValue("email", text)}
+              onChangeText={(text) => { validate(text)}}
               icon={"account"}
+              keyboardType="email-address"
             />
             <TextField
               label={"Senha"}

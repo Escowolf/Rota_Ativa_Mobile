@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import CadastroService from "../../service/cadastroService/cadastroService";
 
-export default function CadastroViewModel() {
+export default function CadastroViewModel(navigation) {
   const { register, setValue, handleSubmit } = useForm();
+  const cadastroService = new CadastroService();
 
   useEffect(() => {
     register("nome");
@@ -13,8 +15,11 @@ export default function CadastroViewModel() {
   }, [register]);
 
   const onSubmit = (data) => {
-    Alert.alert(data.email, data.senha);
-    navigation.navigate("Login");
+    cadastroService.cadastrar(data.nome, data.email, data.senha, data.cpf).then((resp) => {
+      if(resp.data != null){
+        navigation.navigate('Sucesso', {page: 'Login', mensagem: "Voltar", button:"Login"});
+      }
+    });
   };
 
   return {

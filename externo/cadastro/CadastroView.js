@@ -10,7 +10,7 @@ import CadastroViewModel from "./CadastroViewModel";
 import styles from './CadastroStyles.js'
 
 export default function CadastroView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit } = CadastroViewModel();
+  const { setValue, handleSubmit, onSubmit } = CadastroViewModel(navigation);
 
   return (
     <View style={styles.con}>
@@ -42,12 +42,14 @@ export default function CadastroView({ navigation }) {
               placeholder={"Digite seu email"}
               onChangeText={(text) => setValue("email", text)}
               icon={"email"}
+              keyboardType="email-address"
             />
             <TextField
               label={"CPF"}
               placeholder={"Digite seu cpf"}
               onChangeText={(text) => setValue("cpf", text)}
               icon={"account"}
+              keyboardType="numeric"
             />
             <TextField
               label={"Senha"}

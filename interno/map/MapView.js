@@ -10,6 +10,7 @@ export default function Map({ navigation }) {
 
 
   const {
+    user,
     regiao, 
     origem, 
     setOrigem, 
@@ -17,6 +18,8 @@ export default function Map({ navigation }) {
     setDestino, 
     card, 
     setCard, 
+    regra,
+    setRegra,
     styleMap, 
     setStyleMap,
     userLocation,
@@ -31,6 +34,7 @@ export default function Map({ navigation }) {
   function rota(destino, vaga) {
     setEndereco(`${vaga.rua_avenida} - ${vaga.Bairro}`)
     setDestino(destino.coordinate);
+    setRegra(vaga.regra);
     setCard(true);
     setStyleMap({
       width: "100%",
@@ -38,7 +42,7 @@ export default function Map({ navigation }) {
     })
   }
 
-  const GOOGLE_MAPS_APIKEY = "AIzaSyDBscTlHcyJ5FTZ5Dlw7-ojc3LPhFfbAuY";
+  const GOOGLE_MAPS_APIKEY = "AIzaSyAo26qJLabyNucUAufrsrKBraSv4ir3sFo";
 
   function closeCard(e){
     if (e.nativeEvent.action !== 'marker-press') {
@@ -60,14 +64,14 @@ export default function Map({ navigation }) {
         <Card.Content>
           <List.Item
             title={endereco}
-            description="Regra vaga ...."
+            description={regra}
             left={() => <IconButton icon="car" size={30} />}
             right={() => 
                     <View>
                       <Button onPress={() => novaRota()}>
                         Rota
                       </Button>
-                      <Button  onPress={() => navigation.navigate('EstacionarView', {vaga:endereco })} 
+                      <Button  onPress={() => navigation.navigate('EstacionarView', {vaga:endereco, user: user, regra:regra })} 
                                mode="contained"
                       >
                         Estacionar

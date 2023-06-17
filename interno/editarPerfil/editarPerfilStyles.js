@@ -4,15 +4,14 @@ import {  StyleSheet } from "react-native";
 export default StyleSheet.create({
     con: {
       backgroundColor: "#027373",
+      flex: 1,
     },
     container: {
-      flex: 1,
-      backgroundColor: "#027373",
       alignItems: "center",
-      justifyContent: "center",
     },
-    image: {
-      margin: 100,
+    background: {
+      flex: 1,
+      alignItems: 'center'
     },
     button: {
       backgroundColor: "#A9D9D0",

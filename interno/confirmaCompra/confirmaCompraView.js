@@ -1,24 +1,15 @@
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import { Button } from "@react-native-material/core";
+import { Button, Flex } from "@react-native-material/core";
 import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
-import { Flex } from "@react-native-material/core";
 import styles from "./confirmaCompraStyles.js";
 import pessoa from "../../dados/pessoas.json";
 import ConfirmaCompraViewModel from "./confirmaCompraViewModel";
 
-export default function ConfirmarCompraView({route, navigation }) {
-  const { 
-    register,
-    setValue,
-    handleSubmit,
-    onSubmit,
-    cartao,
-    setCartao,
-    formaPagamento,
-    setFormaPagamento
-  } = ConfirmaCompraViewModel();
+export default function ConfirmarCompraView({ route, navigation }) {
+  const { cartao, setCartao, formaPagamento, setFormaPagamento, onSubmit } =
+    ConfirmaCompraViewModel(navigation);
 
-    const {vaga} = route.params 
+  const { user } = route.params.user;
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -36,6 +27,11 @@ export default function ConfirmarCompraView({route, navigation }) {
             </Text>
           </View>
           <NativeBaseProvider>
+            <Text
+              style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}
+            >
+              Escolha o cartão
+            </Text>
             <Select
               selectedValue={cartao}
               minWidth="200"
@@ -46,19 +42,25 @@ export default function ConfirmarCompraView({route, navigation }) {
                 endIcon: <CheckIcon size="5" />,
               }}
               mt={1}
-              style={{backgroundColor: '#fff'}} 
+              style={{ backgroundColor: "#fff" }}
               onValueChange={(itemValue) => setCartao(itemValue)}
             >
-
-              {pessoa[0].cartões.map((x,k) => {
+              {pessoa[0].cartões.map((x, k) => {
                 return (
-                  <Select.Item key={k} label={`Numero: ${x.numero}`} value= {x.numero} />
-                )
+                  <Select.Item
+                    key={k}
+                    label={`Numero: ${x.numero}`}
+                    value={x.numero}
+                  />
+                );
               })}
             </Select>
 
-            
-            <Text  style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}>Forma de pagamento</Text>
+            <Text
+              style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}
+            >
+              Forma de pagamento
+            </Text>
             <Radio.Group
               name="myRadioGroup"
               accessibilityLabel="favorite number"
@@ -66,27 +68,46 @@ export default function ConfirmarCompraView({route, navigation }) {
               onChange={(nextValue) => {
                 setFormaPagamento(nextValue);
               }}
-              display="flex" flexDirection="row" 
-              
+              display="flex"
+              flexDirection="row"
             >
               <Flex direction="row" w={300} justify="around">
-                <Flex style={[styles.margin, styles.backgroundCard]} direction="row" >
-                  <Radio value="1" my={1}/>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>  Credito</Text>
+                <Flex
+                  style={[styles.margin, styles.backgroundCard]}
+                  direction="row"
+                >
+                  <Radio value="1" my={1} />
+                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                    {" "}
+                    Credito
+                  </Text>
                 </Flex>
-                <Flex style={[styles.margin, styles.backgroundCard]} direction="row" >
-                  <Radio value="2" my={1}/>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>  Debito</Text>
+                <Flex
+                  style={[styles.margin, styles.backgroundCard]}
+                  direction="row"
+                >
+                  <Radio value="2" my={1} />
+                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                    {" "}
+                    Debito
+                  </Text>
                 </Flex>
               </Flex>
             </Radio.Group>
-
           </NativeBaseProvider>
 
           <Button
             tintColor="#fff"
             style={[styles.button, styles.font]}
-            onPress={() => navigation.navigate('Sucesso', {page: 'Map', mensagem: "Voltar"})}
+            onPress={() => cartao != "" ?
+              navigation.navigate("Sucesso", {
+                page: "PerfilView",
+                mensagem: "Pagamento Realizado com sucesso",
+                button: "Voltar",
+              })
+              :
+              ""
+            }
             title="Confirmar pagamento"
           />
         </ScrollView>

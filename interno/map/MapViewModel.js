@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Location from "expo-location";
+import LoginService from "../../service/loginService/loginService";
 
 export default function MapViewModel() {
+
+  const loginService = new LoginService();
+  const [ user, setUser ] = useState();
   const [regiao, setRegiao] = useState({
     latitude: -3.731862,
     longitude: -38.526669,
@@ -10,12 +14,25 @@ export default function MapViewModel() {
   });
   const [origem, setOrigem] = useState();
   const [destino, setDestino] = useState();
+  const [regra, setRegra] = useState();
   const [card, setCard] = useState(false);
   const [styleMap, setStyleMap] = useState({
     width: "100%",
     height: "100%",
   });
   const [endereco, setEndereco] = useState();
+
+
+  useEffect(() => {
+    loginService.logar("sstabler0@answers.com","KJoU8KWI7w").then((resp) => {
+      console.log(resp.data);
+      if(resp.data != null){
+        setUser(resp.data);
+      }
+    });
+    console.log(user)
+  }, []);
+
 
   const userLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -34,6 +51,7 @@ export default function MapViewModel() {
   };
 
   return {
+    user,
     regiao,
     origem,
     setOrigem,
@@ -41,6 +59,8 @@ export default function MapViewModel() {
     setDestino,
     card, 
     setCard,
+    regra,
+    setRegra,
     styleMap, 
     setStyleMap,
     userLocation,

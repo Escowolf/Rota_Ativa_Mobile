@@ -10,13 +10,13 @@ import {
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "./inicioStyles.js";
 import InicioViewModel from "./inicioViewModel.js";
-import pessoa from "../../dados/pessoas.json";
+import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
 export default function InicioView({ navigation }) {
   const {
-    setValue,
-    handleSubmit,
-    onSubmit,
+    loading,
+    historico,
+    user
   } = InicioViewModel();
 
   return (
@@ -30,9 +30,12 @@ export default function InicioView({ navigation }) {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.container}
         >
+
+        { loading ?
+          <>
           <View style={styles.cabecalho}>
             <Text Text style={[styles.titulo1, styles.font]}>
-              Olá teste
+              Olá  {user != undefined ? user.nome : ""}
             </Text>
           </View>
 
@@ -51,7 +54,7 @@ export default function InicioView({ navigation }) {
             </Text>
               
 
-            {pessoa[0].historico.map((h, k) => {
+            {[historico[0],historico[1]].map((h, k) => {
               return (
                 <Flex key={k} style={styles.cabecalho1} center>
                   <Flex direction="row"  center h={50}>
@@ -61,7 +64,7 @@ export default function InicioView({ navigation }) {
                       <Icon name="map-marker" size={24} color="#fff" />
                     </IconComponentProvider>
                     <Text style={[styles.font, styles.cor]}>
-                      {h.local.rua_avenida}, {h.local.bairro}
+                      {h.vaga.logradouro}, {h.vaga.bairro}
                     </Text>
                   </Flex>
                 </Flex>
@@ -76,12 +79,12 @@ export default function InicioView({ navigation }) {
                 borderRadius: 10,
                 marginTop: 20,
               }}
-              onPress={() => navigation.navigate('AcompanharView', {name: 'Jane'})}
+              onPress={() => navigation.navigate('HistoricoView', {user: user})}
             >
               <Stack fill center spacing={4}>
                 <Flex direction="row" w={500} center>
                   <Text style={[styles.titulo, styles.cor, styles.font]}>
-                    Mostrar mais vagas
+                    Mostrar historico
                   </Text>
                 </Flex>
               </Stack>
@@ -90,10 +93,22 @@ export default function InicioView({ navigation }) {
 
           <Button
           style={[styles.buttonCommon, styles.font]}
-          title="Meus cartões - creditos"
+          title="Veiculos"
           loadingIndicatorPosition="overlay"
-          onPress={() => navigation.navigate("VeiculosView", { name: "Jane" })}
+          onPress={() => navigation.navigate("VeiculosView", { user: user })}
         />
+          </>
+          :
+          (
+            <NativeBaseProvider>
+              <HStack  style={styles.cabecalho} space={15} justifyContent="center" alignItems="center">
+                <Spinner size="lg" color="emerald.500"  />
+              </HStack>
+            </NativeBaseProvider>
+          )
+        }
+
+          
 
         </ScrollView>
 
@@ -101,7 +116,7 @@ export default function InicioView({ navigation }) {
           style={[styles.button, styles.font]}
           title="Suporte"
           loadingIndicatorPosition="overlay"
-          onPress={() => navigation.navigate("VeiculosView", { name: "Jane" })}
+          onPress={() => navigation.navigate("SuporteView")}
         />
       </ImageBackground>
     </View>
