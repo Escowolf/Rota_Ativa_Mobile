@@ -7,7 +7,7 @@ export default function TextField({ label, icon, ...inputProps }) {
 
   return (
     <View style={styles.textField}>
-      <Text style={[styles.text, styles.font]}>{label}</Text>
+      <Text style={[styles.text]}>{label}</Text>
       <TextInput
         leading={(props) => <Icon name={icon} {...props} />}
         style={styles.textInput}

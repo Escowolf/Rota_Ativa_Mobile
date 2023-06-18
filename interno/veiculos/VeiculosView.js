@@ -42,7 +42,7 @@ export default function VeiculosView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Veiculos Cadastrados
               <Image source={require("../../assets/car.png")} />
             </Text>
@@ -71,7 +71,7 @@ export default function VeiculosView({ navigation, route }) {
                   >
                     <Stack fill center spacing={4}>
                       <Flex direction="row" w={230}>
-                        <Text style={[styles.titulo, styles.cor, styles.font]}>
+                        <Text style={[styles.titulo, styles.cor]}>
                           Placa
                         </Text>
                         <Button
@@ -86,7 +86,7 @@ export default function VeiculosView({ navigation, route }) {
                         />
                       </Flex>
                       <Flex direction="row" w={230}>
-                        <Text style={[styles.titulo, styles.cor, styles.font]}>
+                        <Text style={[styles.titulo, styles.cor]}>
                           Modelo
                         </Text>
                         <Button
@@ -101,7 +101,7 @@ export default function VeiculosView({ navigation, route }) {
                         />
                       </Flex>
                       <Flex direction="row" w={230}>
-                        <Text style={[styles.titulo, styles.cor, styles.font]}>
+                        <Text style={[styles.titulo, styles.cor]}>
                           Cor
                         </Text>
                         <Button
@@ -228,7 +228,7 @@ export default function VeiculosView({ navigation, route }) {
         </ScrollView>
 
         <Button
-          style={[styles.button, styles.font]}
+          style={[styles.button]}
           title="Adicionar veiculos"
           loadingIndicatorPosition="overlay"
           onPress={() => setVisible(true)}

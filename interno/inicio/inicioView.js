@@ -34,7 +34,7 @@ export default function InicioView({ navigation, route }) {
         { loading ?
           <>
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Olá  {user != undefined ? user.nome : ""}
             </Text>
           </View>
@@ -49,7 +49,7 @@ export default function InicioView({ navigation, route }) {
             center
           >
 
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Ultimos lugares estacionados
             </Text>
               
@@ -83,7 +83,7 @@ export default function InicioView({ navigation, route }) {
             >
               <Stack fill center spacing={4}>
                 <Flex direction="row" w={500} center>
-                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                  <Text style={[styles.titulo, styles.cor]}>
                     Mostrar historico
                   </Text>
                 </Flex>
@@ -92,7 +92,7 @@ export default function InicioView({ navigation, route }) {
           </Flex>
 
           <Button
-          style={[styles.buttonCommon, styles.font]}
+          style={[styles.buttonCommon]}
           title="Veiculos"
           loadingIndicatorPosition="overlay"
           onPress={() => navigation.navigate("VeiculosView", { user: user })}
@@ -113,7 +113,7 @@ export default function InicioView({ navigation, route }) {
         </ScrollView>
 
         <Button
-          style={[styles.button, styles.font]}
+          style={[styles.button]}
           title="Suporte"
           loadingIndicatorPosition="overlay"
           onPress={() => navigation.navigate("SuporteView")}

@@ -14,17 +14,17 @@ export default function Index({ navigation }) {
         <Image style={styles.image} source={require('../assets/logo.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor, styles.font]}>
+          <Text style={[styles.titulo, styles.cor]}>
             Bem-vindo(a) ao RotaAtiva
           </Text>
-          <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+          <Text style={[styles.subTitulo, styles.cor]}>
             O aplicativo para todos
           </Text>
         </View>
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.login, styles.font]} 
+          style={[styles.button, styles.login]} 
           onPress={() =>
             navigation.navigate('Login')
           } 
@@ -33,7 +33,7 @@ export default function Index({ navigation }) {
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.cadastro, styles.font]} 
+          style={[styles.button, styles.cadastro]} 
           onPress={() =>
             navigation.navigate('Cadastro')
           } 

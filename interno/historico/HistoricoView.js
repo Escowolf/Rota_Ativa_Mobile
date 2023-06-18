@@ -20,7 +20,7 @@ export default function HistoricoView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo, styles.font]}>
+            <Text Text style={[styles.titulo]}>
               Histórico de estacionamento
             </Text>
           </View>
@@ -53,7 +53,7 @@ export default function HistoricoView({ navigation, route }) {
                           <Icon name="calendar" size={24} color="#263238" />
                         </IconComponentProvider>
                         <Text
-                          style={[styles.subTitulo, styles.cor, styles.font]}
+                          style={[styles.subTitulo, styles.cor]}
                         >
                           {h.entrada}
                         </Text>
@@ -66,7 +66,7 @@ export default function HistoricoView({ navigation, route }) {
                           <Icon name="clock" size={24} color="#263238" />
                         </IconComponentProvider>
                         <Text
-                          style={[styles.subTitulo, styles.cor, styles.font]}
+                          style={[styles.subTitulo, styles.cor]}
                         >
                           {h.vaga.tempoUso}:00:00
                         </Text>
@@ -79,7 +79,7 @@ export default function HistoricoView({ navigation, route }) {
                           <Icon name="cash" size={24} color="#263238" />
                         </IconComponentProvider>
                         <Text
-                          style={[styles.subTitulo, styles.cor, styles.font]}
+                          style={[styles.subTitulo, styles.cor]}
                         >
                           R$ {h.ticketUsado}0,00
                         </Text>

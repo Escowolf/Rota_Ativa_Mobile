@@ -20,7 +20,7 @@ export default function AcompanharView({ navigation }) {
           contentContainerStyle={{ flex: 1 }}
         >
           <View style={styles.cabecalho}>
-            <Text style={[styles.titulo, styles.cor, styles.font]}>
+            <Text style={[styles.titulo, styles.cor]}>
               Acompanhe seu veiculo
             </Text>
           </View>
@@ -31,11 +31,11 @@ export default function AcompanharView({ navigation }) {
                   <Icon name="car" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}> Veiculo</Text>
+                  <Text style={[styles.subTitulo, styles.cor]}> Veiculo</Text>
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>RXJ5248</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo]}>RXJ5248</Text>
                 </Flex>
             </Flex>
 
@@ -46,11 +46,11 @@ export default function AcompanharView({ navigation }) {
                   <Icon name="map-marker" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}> Local</Text>
+                  <Text style={[styles.subTitulo, styles.cor]}> Local</Text>
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>Rua x, Aldeota</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo]}>Rua x, Aldeota</Text>
                 </Flex>
             </Flex>
 
@@ -60,11 +60,11 @@ export default function AcompanharView({ navigation }) {
                   <Icon name="clock" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}> Tempo restante</Text>
+                  <Text style={[styles.subTitulo, styles.cor]}> Tempo restante</Text>
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>01:00:00</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo]}>01:00:00</Text>
                 </Flex>
             </Flex>
 
@@ -74,11 +74,11 @@ export default function AcompanharView({ navigation }) {
                   <Icon name="cash" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}> Custo</Text>
+                  <Text style={[styles.subTitulo, styles.cor]}> Custo</Text>
                 </Flex>
               </Flex>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>R$ 20,00</Text>
+                  <Text style={[styles.subTitulo, styles.corInfo]}>R$ 20,00</Text>
                 </Flex>
             </Flex>
             
@@ -87,7 +87,7 @@ export default function AcompanharView({ navigation }) {
 
         <Button 
           tintColor="#fff" 
-          style={[styles.button, styles.sair, styles.font]} 
+          style={[styles.button, styles.sair]} 
           onPress={() => navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})} 
           title="Sair da vaga"
         />

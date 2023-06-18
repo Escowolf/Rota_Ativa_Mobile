@@ -25,14 +25,14 @@ export default function Sucesso({route, navigation }) {
         <Image style={styles.image} source={require("../assets/sucesso.png")} />
 
         <View style={styles.cabecalho}>
-          <Text style={[styles.titulo, styles.cor, styles.font]}>
+          <Text style={[styles.titulo, styles.cor]}>
             {mensagem}
           </Text>
         </View>
 
         <Button
           tintColor="#fff"
-          style={[styles.buttonSucess, styles.cadastro, styles.font]}
+          style={[styles.buttonSucess, styles.cadastro]}
           onPress={() => navigation.navigate(page)}
           title={button}
         />

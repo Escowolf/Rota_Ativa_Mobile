@@ -25,14 +25,14 @@ export default function Erro({route, navigation }) {
         <Image style={styles.image} source={require('../assets/erro.png')}/>
 
         <View style={styles.cabecalho}>
-          <Text Text style={[styles.titulo, styles.cor, styles.font]}>
+          <Text Text style={[styles.titulo, styles.cor]}>
             {mensagem}
           </Text>
         </View>
 
         <Button 
           tintColor="#FF647C" 
-          style={[styles.buttonErro, styles.cadastro, styles.font]} 
+          style={[styles.buttonErro, styles.cadastro]} 
           onPress={() => navigation.navigate(page)}
           title={button}
         />

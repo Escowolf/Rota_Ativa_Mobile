@@ -19,7 +19,7 @@ export default function PerfilView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Configuração
             </Text>
           </View>
@@ -27,7 +27,7 @@ export default function PerfilView({ navigation, route }) {
           {loading ? (
             <>
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Editar Perfil"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
@@ -36,7 +36,7 @@ export default function PerfilView({ navigation, route }) {
               />
 
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Acompanhar veiculo"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
@@ -45,7 +45,7 @@ export default function PerfilView({ navigation, route }) {
               />
 
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Veiculos"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
@@ -54,7 +54,7 @@ export default function PerfilView({ navigation, route }) {
               />
 
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Historico"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
@@ -63,7 +63,7 @@ export default function PerfilView({ navigation, route }) {
               />
 
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Pagamento"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
@@ -72,8 +72,17 @@ export default function PerfilView({ navigation, route }) {
               />
 
               <Button
-                style={[styles.buttonCommon, styles.font]}
+                style={[styles.buttonCommon]}
                 title="Suporte"
+                loadingIndicatorPosition="overlay"
+                onPress={() =>
+                  navigation.navigate("SuporteView", { user: user })
+                }
+              />
+
+              <Button
+                style={[styles.buttonCommon2]}
+                title="Sair"
                 loadingIndicatorPosition="overlay"
                 onPress={() =>
                   navigation.navigate("SuporteView", { user: user })

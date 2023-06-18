@@ -34,7 +34,7 @@ export default function PagamentoView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Cartões
             </Text>
           </View>
@@ -55,16 +55,16 @@ export default function PagamentoView({ navigation, route }) {
                 spacing={4}
               >
                 <Flex direction="row" w={350} center>
-                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                  <Text style={[styles.titulo, styles.cor]}>
                     {x.bandeira}
                   </Text>
                   <Image source={require("../../assets/mastercard.png")} />
                 </Flex>
                 <Flex direction="column" style={{ padding: 20 }}>
-                  <Text style={[styles.numeroCartao, styles.cor, styles.font]}>
+                  <Text style={[styles.numeroCartao, styles.cor]}>
                    {x.numero}
                   </Text>
-                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                  <Text style={[styles.titulo, styles.cor]}>
                     {x.nome}
                   </Text>
                 </Flex>
@@ -74,7 +74,7 @@ export default function PagamentoView({ navigation, route }) {
           }
 
           <View style={{ marginTop: 50 }}>
-            <Text Text style={[{ fontSize: 25, color: "#fff" }, styles.font]}>
+            <Text Text style={[{ fontSize: 25, color: "#fff" }]}>
               Tickets
             </Text>
           </View>
@@ -149,7 +149,7 @@ export default function PagamentoView({ navigation, route }) {
         </ScrollView>
 
         <Button
-          style={[styles.button, styles.font]}
+          style={[styles.button]}
           title="Adicionar forma de pagamento"
           loadingIndicatorPosition="overlay"
           onPress={() => setVisible(true)}

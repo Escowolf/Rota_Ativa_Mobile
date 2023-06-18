@@ -24,10 +24,10 @@ export default function CadastroView({ navigation }) {
             contentContainerStyle={styles.container}
           >
             <View style={styles.cabecalho}>
-              <Text Text style={[styles.titulo, styles.cor, styles.font]}>
+              <Text Text style={[styles.titulo, styles.cor]}>
                 Abra sua Conta
               </Text>
-              <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+              <Text style={[styles.subTitulo, styles.cor]}>
                 Abra sua conta com alguns detalhes
               </Text>
             </View>
@@ -67,7 +67,7 @@ export default function CadastroView({ navigation }) {
             />
             <Button
               tintColor="#fff"
-              style={[styles.button, styles.font]}
+              style={[styles.button]}
               onPress={handleSubmit(onSubmit)}
               title="Crie sua conta"
             />

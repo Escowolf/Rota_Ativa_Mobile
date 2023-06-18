@@ -39,7 +39,7 @@ export default function CompraCreditosView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Comprar Créditos: (CADs)
             </Text>
           </View>
@@ -71,10 +71,10 @@ export default function CompraCreditosView({ navigation, route }) {
                 >
                   <Stack fill center spacing={4}>
                     <Flex direction="row" w={300} center>
-                      <Text style={[styles.titulo, styles.cor, styles.font]}>
+                      <Text style={[styles.titulo, styles.cor]}>
                         R$ {x.preco},00
                       </Text>
-                      <Text style={[styles.titulo, styles.cor, styles.font]}>
+                      <Text style={[styles.titulo, styles.cor]}>
                         {x.cartao} Cartão
                       </Text>
                     </Flex>
@@ -95,7 +95,7 @@ export default function CompraCreditosView({ navigation, route }) {
             >
               <Stack fill center spacing={4}>
                 <Flex direction="row" w={230} center>
-                  <Text style={[styles.titulo, styles.cor, styles.font]}>
+                  <Text style={[styles.titulo, styles.cor]}>
                     Resgatar Código
                   </Text>
                 </Flex>
@@ -162,7 +162,7 @@ export default function CompraCreditosView({ navigation, route }) {
         </ScrollView>
 
         <Button
-          style={[styles.button, styles.font]}
+          style={[styles.button]}
           title="Suporte"
           loadingIndicatorPosition="overlay"
           onPress={() =>

@@ -19,7 +19,7 @@ export default function EditarPerfilView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text style={[styles.titulo, styles.cor, styles.font]}>
+            <Text style={[styles.titulo, styles.cor]}>
               Edite seu Perfil
             </Text>
           </View>
@@ -59,7 +59,7 @@ export default function EditarPerfilView({ navigation, route }) {
           />
           <Button
             tintColor="#535353"
-            style={[styles.button, styles.font]}
+            style={[styles.button]}
             onPress={handleSubmit(onSubmit)}
             title="Atualizar"
           />

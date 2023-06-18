@@ -29,7 +29,7 @@ export default function SuporteView({ navigation, route }) {
           contentContainerStyle={styles.container}
         >
           <View style={styles.cabecalho}>
-            <Text Text style={[styles.titulo1, styles.font]}>
+            <Text Text style={[styles.titulo1]}>
               Qual sua duvida?
             </Text>
           </View>
@@ -60,7 +60,7 @@ export default function SuporteView({ navigation, route }) {
                 >
                   <Stack fill center spacing={1}>
                     <Flex direction="row" w={230} center>
-                      <Text style={[styles.titulo, styles.cor, styles.font]}>
+                      <Text style={[styles.titulo, styles.cor]}>
                         {x.pergunta}
                       </Text>
                     </Flex>

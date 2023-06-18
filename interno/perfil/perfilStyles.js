@@ -46,13 +46,19 @@ export default StyleSheet.create({
       backgroundColor: "#1CA9A9",
       width: 300,
       position:"absolute",
-      bottom: 20,
+      bottom: 10,
       alignSelf:"center"
     },
     buttonCommon: {
       backgroundColor: "#1CA9A9",
       width: 300,
       marginVertical: 10,
+      bottom: 20
+    },
+    buttonCommon2: {
+      backgroundColor: "#1CA9A9",
+      width: 300,
+      marginTop: 300,
       bottom: 20
     },
     font:{

@@ -22,13 +22,13 @@ export default function ConfirmarCompraView({ route, navigation }) {
           contentContainerStyle={{ flex: 1 }}
         >
           <View style={styles.cabecalho}>
-            <Text style={[styles.titulo, styles.cor, styles.font]}>
+            <Text style={[styles.titulo, styles.cor]}>
               Confirmar compra
             </Text>
           </View>
           <NativeBaseProvider>
             <Text
-              style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}
+              style={[styles.subTitulo, styles.cor, styles.margin]}
             >
               Escolha o cartão
             </Text>
@@ -57,7 +57,7 @@ export default function ConfirmarCompraView({ route, navigation }) {
             </Select>
 
             <Text
-              style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}
+              style={[styles.subTitulo, styles.cor, styles.margin]}
             >
               Forma de pagamento
             </Text>
@@ -79,7 +79,7 @@ export default function ConfirmarCompraView({ route, navigation }) {
                   <Radio accessibilityLabel="Credito" value="1" my={1} />
                   <Text
                     nativeID="Credito"
-                    style={[styles.subTitulo, styles.cor, styles.font]}
+                    style={[styles.subTitulo, styles.cor]}
                   >
                     {" "}
                     Credito
@@ -92,7 +92,7 @@ export default function ConfirmarCompraView({ route, navigation }) {
                   <Radio accessibilityLabel="Debito" value="2" my={1} />
                   <Text
                     nativeID="Debito"
-                    style={[styles.subTitulo, styles.corInfo, styles.font]}
+                    style={[styles.subTitulo, styles.corInfo]}
                   >
                     {" "}
                     Debito
@@ -104,7 +104,7 @@ export default function ConfirmarCompraView({ route, navigation }) {
 
           <Button
             tintColor="#fff"
-            style={[styles.button, styles.font]}
+            style={[styles.button]}
             onPress={() =>
               cartao != ""
                 ? navigation.navigate("Sucesso", {

@@ -31,7 +31,7 @@ export default function EstacionarView({ route, navigation }) {
           contentContainerStyle={{ flex: 1 }}
         >
           <View style={styles.cabecalho}>
-            <Text style={[styles.titulo, styles.cor, styles.font]}>
+            <Text style={[styles.titulo, styles.cor]}>
               Estacionar
             </Text>
           </View>
@@ -71,17 +71,17 @@ export default function EstacionarView({ route, navigation }) {
                   <Icon name="map-marker" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                  <Text style={[styles.subTitulo, styles.cor]}>
                     {" "}
                     Local
                   </Text>
                 </Flex>
               </Flex>
               <Flex>
-                <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
                   {vaga.rua_avenida} - {vaga.Bairro}
                 </Text>
-                <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
                   {regra}
                 </Text>
               </Flex>
@@ -93,14 +93,14 @@ export default function EstacionarView({ route, navigation }) {
                   <Icon name="clock" size={24} color="#fff" />
                 </IconComponentProvider>
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                  <Text style={[styles.subTitulo, styles.cor]}>
                     {" "}
                     Tempo de Uso
                   </Text>
                 </Flex>
               </Flex>
               <Flex>
-                <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
                   {custoTempo.tempo}:00hr
                 </Text>
               </Flex>
@@ -109,13 +109,13 @@ export default function EstacionarView({ route, navigation }) {
             <Flex style={[styles.margin]} direction="column" h={50}>
               <Flex direction="row">
                 <Flex>
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                  <Text style={[styles.subTitulo, styles.cor]}>
                     Quantidade de Cartões Disponiveis
                   </Text>
                 </Flex>
               </Flex>
               <Flex>
-                <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
                   {" "}
                   {user.ticket}
                 </Text>
@@ -123,7 +123,7 @@ export default function EstacionarView({ route, navigation }) {
             </Flex>
 
             <Text
-              style={[styles.subTitulo, styles.cor, styles.font, styles.margin]}
+              style={[styles.subTitulo, styles.cor, styles.margin]}
             >
               Quantos cartões você deseja usar?
             </Text>
@@ -147,7 +147,7 @@ export default function EstacionarView({ route, navigation }) {
                     <Radio accessibilityLabel="cartao 1" value="1" my={1} />
                     <Text
                       nativeID="cartao 1"
-                      style={[styles.subTitulo, styles.cor, styles.font]}
+                      style={[styles.subTitulo, styles.cor]}
                     >
                       {" "}
                       1 Cartão
@@ -161,7 +161,7 @@ export default function EstacionarView({ route, navigation }) {
                       <Radio accessibilityLabel="cartao 2" value="2" my={1} />
                       <Text
                         nativeID="cartao 2"
-                        style={[styles.subTitulo, styles.corInfo, styles.font]}
+                        style={[styles.subTitulo, styles.corInfo]}
                       >
                         {" "}
                         2 Cartões
@@ -177,7 +177,7 @@ export default function EstacionarView({ route, navigation }) {
                 style={[styles.margin, styles.backgroundCard]}
                 direction="row"
               >
-                <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
                   {" "}
                   Quantidade de tickets invalido
                 </Text>
@@ -187,7 +187,7 @@ export default function EstacionarView({ route, navigation }) {
               style={[styles.margin, styles.backgroundCard]}
               direction="row"
             >
-              <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+              <Text style={[styles.subTitulo, styles.corInfo]}>
                 {" "}
                 1 Cartão = 1 Hora{" "}
               </Text>
@@ -196,7 +196,7 @@ export default function EstacionarView({ route, navigation }) {
 
           <Button
             tintColor="#fff"
-            style={[styles.button, styles.font]}
+            style={[styles.button]}
             onPress={() =>
               onSubmit({ vaga: vaga, veiculo: veiculoSelecionado })
             }
