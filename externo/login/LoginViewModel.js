@@ -34,6 +34,7 @@ export default function LoginViewModel(navigation) {
   }
 
   return {
+    user,
     validate,
     register,
     setValue,

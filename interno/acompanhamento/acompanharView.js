@@ -1,7 +1,6 @@
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import { Button } from "@react-native-material/core";
 import { NativeBaseProvider } from "native-base";
-import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
+import { Button, Flex, Icon, IconComponentProvider } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AcompanharViewModel from "./acompanharViewModel";
 import styles from './acompanharStyles'

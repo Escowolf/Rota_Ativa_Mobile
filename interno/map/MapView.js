@@ -45,7 +45,8 @@ export default function Map({ navigation, route }) {
     })
   }
 
-  const GOOGLE_MAPS_APIKEY = "AIzaSyAo26qJLabyNucUAufrsrKBraSv4ir3sFo";
+  //const GOOGLE_MAPS_APIKEY = "AIzaSyAo26qJLabyN
+  //ucUAufrsrKBraSv4ir3sFo";
 
   function closeCard(e){
     if (e.nativeEvent.action !== 'marker-press') {
@@ -56,7 +57,7 @@ export default function Map({ navigation, route }) {
         height: "100%",
       })
     } else {
-      
+      ""
     }
   }
 

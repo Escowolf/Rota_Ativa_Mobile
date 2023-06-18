@@ -63,10 +63,10 @@ export default function VeiculosView({ navigation, route }) {
                       borderRadius: 10,
                     }}
                     onPress={() => {
-                      setVeiculo(x),
-                        setVisible1(true),
-                        setValue("placa", x.placa),
-                        setValue("modelo", x.modelo),
+                        setVeiculo(x);
+                        setVisible1(true);
+                        setValue("placa", x.placa);
+                        setValue("modelo", x.modelo);
                         setValue("cor", x.cor);
                     }}
                   >

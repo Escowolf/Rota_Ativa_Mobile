@@ -55,7 +55,7 @@ export default function SuporteView({ navigation, route }) {
                     borderRadius: 10,
                   }}
                   onPress={() => {
-                    setPergunta(x), setVisible(true);
+                    setPergunta(x); setVisible(true);
                   }}
                 >
                   <Stack fill center spacing={1}>
