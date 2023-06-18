@@ -6,10 +6,12 @@ import { Button, Card, IconButton, List } from "react-native-paper";
 import MapViewModel from "./mapViewModel";
 import styles from './mapStyles.js'
 
-export default function Map({ navigation }) {
+export default function Map({ navigation, route }) {
 
 
   const {
+    vaga, 
+    setVaga,
     user,
     regiao, 
     origem, 
@@ -25,13 +27,14 @@ export default function Map({ navigation }) {
     userLocation,
     endereco,
     setEndereco
-  } = MapViewModel();
+  } = MapViewModel(route);
 
   function novaRota(){
     userLocation();
   }
   
   function rota(destino, vaga) {
+    setVaga(vaga)
     setEndereco(`${vaga.rua_avenida} - ${vaga.Bairro}`)
     setDestino(destino.coordinate);
     setRegra(vaga.regra);
@@ -71,7 +74,7 @@ export default function Map({ navigation }) {
                       <Button onPress={() => novaRota()}>
                         Rota
                       </Button>
-                      <Button  onPress={() => navigation.navigate('EstacionarView', {vaga:endereco, user: user, regra:regra })} 
+                      <Button  onPress={() => navigation.navigate('EstacionarView', {vaga:vaga, user: user, regra:regra })} 
                                mode="contained"
                       >
                         Estacionar

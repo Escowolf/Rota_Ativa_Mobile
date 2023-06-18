@@ -8,12 +8,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function EstacionarView({ route, navigation }) {
   const {
+    veiculoSelecionado,
+    setVeiculoSelecionado,
     veiculo,
     setVeiculo,
     credito,
     setCredito,
     custoTempo,
-  } = EstacionarViewModel();
+    onSubmit,
+  } = EstacionarViewModel(navigation);
 
   const { vaga, user, regra } = route.params;
   return (
@@ -44,7 +47,12 @@ export default function EstacionarView({ route, navigation }) {
               }}
               mt={1}
               style={{ backgroundColor: "#fff" }}
-              onValueChange={(itemValue) => setVeiculo(itemValue)}
+              onValueChange={(itemValue) => {
+                setVeiculo(itemValue);
+                setVeiculoSelecionado(
+                  user.veiculos.filter((v) => v.placa == itemValue)
+                );
+              }}
             >
               {user.veiculos.map((x, k) => {
                 return (
@@ -71,7 +79,7 @@ export default function EstacionarView({ route, navigation }) {
               </Flex>
               <Flex>
                 <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
-                  {vaga}
+                  {vaga.rua_avenida} - {vaga.Bairro}
                 </Text>
                 <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
                   {regra}
@@ -122,8 +130,8 @@ export default function EstacionarView({ route, navigation }) {
 
             {user.ticket >= 1 ? (
               <Radio.Group
-                name="myRadioGroup"
-                accessibilityLabel="favorite number"
+                name="cartões"
+                accessibilityLabel="cartões"
                 value={credito}
                 onChange={(nextValue) => {
                   setCredito(nextValue);
@@ -136,8 +144,11 @@ export default function EstacionarView({ route, navigation }) {
                     style={[styles.margin, styles.backgroundCard]}
                     direction="row"
                   >
-                    <Radio value="1" my={1} />
-                    <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                    <Radio accessibilityLabel="cartao 1" value="1" my={1} />
+                    <Text
+                      nativeID="cartao 1"
+                      style={[styles.subTitulo, styles.cor, styles.font]}
+                    >
                       {" "}
                       1 Cartão
                     </Text>
@@ -147,8 +158,9 @@ export default function EstacionarView({ route, navigation }) {
                       style={[styles.margin, styles.backgroundCard]}
                       direction="row"
                     >
-                      <Radio value="2" my={1} />
+                      <Radio accessibilityLabel="cartao 2" value="2" my={1} />
                       <Text
+                        nativeID="cartao 2"
                         style={[styles.subTitulo, styles.corInfo, styles.font]}
                       >
                         {" "}
@@ -185,14 +197,8 @@ export default function EstacionarView({ route, navigation }) {
           <Button
             tintColor="#fff"
             style={[styles.button, styles.font]}
-            onPress={() => veiculo != "" ?
-              navigation.navigate("Sucesso", {
-                page: "Map",
-                mensagem: "Voltar",
-                button: "Voltar",
-              }) 
-              :
-              ""
+            onPress={() =>
+              onSubmit({ vaga: vaga, veiculo: veiculoSelecionado })
             }
             title="Estacionar"
           />

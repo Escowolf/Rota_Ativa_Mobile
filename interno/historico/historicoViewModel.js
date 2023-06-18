@@ -9,7 +9,6 @@ export default function HistoricoViewModel(route) {
     const historicoService = new HistoricoService();
     useEffect(() => {
       historicoService.historico(Number(route.params.user.id)).then((resp) => {
-        console.log(resp.data);
         setHistorico(resp.data);
         setLoading(true);
       })

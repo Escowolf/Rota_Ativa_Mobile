@@ -13,14 +13,19 @@ import {
 import styles from "./compraCreditosStyles.js";
 import CompraCreditosViewModel from "./compraCreditosViewModel.js";
 import creditos from "../../dados/creditos.json";
-import { useState } from "react";
 
 export default function CompraCreditosView({ navigation, route }) {
-  const [ticket, setTicket] = useState({ preco: "", cartao: "" });
-  const [visibleCodigo, setVisibleCodigo] = useState(false);
-
-  const { setValue, handleSubmit, visible, setVisible, onSubmit } =
-    CompraCreditosViewModel(navigation);
+  const {
+    ticket,
+    setTicket,
+    visibleCodigo,
+    setVisibleCodigo,
+    setValue,
+    handleSubmit,
+    visible,
+    setVisible,
+    onSubmit,
+  } = CompraCreditosViewModel(navigation);
 
   return (
     <View style={styles.con}>
@@ -117,19 +122,24 @@ export default function CompraCreditosView({ navigation, route }) {
                 variant="text"
                 onPress={() => {
                   setVisible(false);
-                  navigation.navigate("ConfirmarCompraView", {user: route.params.user});
+                  navigation.navigate("ConfirmarCompraView", {
+                    user: route.params.user,
+                  });
                 }}
               />
             </DialogActions>
           </Dialog>
 
-          <Dialog visible={visibleCodigo} onDismiss={() => setVisibleCodigo(false)}>
+          <Dialog
+            visible={visibleCodigo}
+            onDismiss={() => setVisibleCodigo(false)}
+          >
             <DialogHeader title="Resgatar Codigo" />
             <DialogContent>
               <Stack spacing={1}>
                 <TextInput
                   placeholder="Informe o codigo"
-                  onChangeText={(text) => setValue("codigo", text) }
+                  onChangeText={(text) => setValue("codigo", text)}
                   variant="standard"
                 />
               </Stack>

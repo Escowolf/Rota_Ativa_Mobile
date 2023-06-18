@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import * as Location from "expo-location";
-import LoginService from "../../service/loginService/loginService";
 
-export default function MapViewModel() {
+export default function MapViewModel(route) {
 
-  const loginService = new LoginService();
+  const [ vaga, setVaga ] = useState();
   const [ user, setUser ] = useState();
   const [regiao, setRegiao] = useState({
     latitude: -3.731862,
@@ -24,13 +23,7 @@ export default function MapViewModel() {
 
 
   useEffect(() => {
-    loginService.logar("sstabler0@answers.com","KJoU8KWI7w").then((resp) => {
-      console.log(resp.data);
-      if(resp.data != null){
-        setUser(resp.data);
-      }
-    });
-    console.log(user)
+    setUser(route.params.user)
   }, []);
 
 
@@ -51,6 +44,8 @@ export default function MapViewModel() {
   };
 
   return {
+    vaga, 
+    setVaga,
     user,
     regiao,
     origem,

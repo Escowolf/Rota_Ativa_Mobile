@@ -42,7 +42,6 @@ export default function EditarPerfilView({ navigation, route }) {
             onChangeText={(text) => setValue("cpf", text)}
             icon={"account"}
             keyboardType="numeric"
-
           />
           <TextField
             label={"Nova senha"}

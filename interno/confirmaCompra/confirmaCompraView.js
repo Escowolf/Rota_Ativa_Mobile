@@ -76,8 +76,11 @@ export default function ConfirmarCompraView({ route, navigation }) {
                   style={[styles.margin, styles.backgroundCard]}
                   direction="row"
                 >
-                  <Radio value="1" my={1} />
-                  <Text style={[styles.subTitulo, styles.cor, styles.font]}>
+                  <Radio accessibilityLabel="Credito" value="1" my={1} />
+                  <Text
+                    nativeID="Credito"
+                    style={[styles.subTitulo, styles.cor, styles.font]}
+                  >
                     {" "}
                     Credito
                   </Text>
@@ -86,8 +89,11 @@ export default function ConfirmarCompraView({ route, navigation }) {
                   style={[styles.margin, styles.backgroundCard]}
                   direction="row"
                 >
-                  <Radio value="2" my={1} />
-                  <Text style={[styles.subTitulo, styles.corInfo, styles.font]}>
+                  <Radio accessibilityLabel="Debito" value="2" my={1} />
+                  <Text
+                    nativeID="Debito"
+                    style={[styles.subTitulo, styles.corInfo, styles.font]}
+                  >
                     {" "}
                     Debito
                   </Text>
@@ -99,14 +105,14 @@ export default function ConfirmarCompraView({ route, navigation }) {
           <Button
             tintColor="#fff"
             style={[styles.button, styles.font]}
-            onPress={() => cartao != "" ?
-              navigation.navigate("Sucesso", {
-                page: "PerfilView",
-                mensagem: "Pagamento Realizado com sucesso",
-                button: "Voltar",
-              })
-              :
-              ""
+            onPress={() =>
+              cartao != ""
+                ? navigation.navigate("Sucesso", {
+                    page: "PerfilView",
+                    mensagem: "Pagamento Realizado com sucesso",
+                    button: "Voltar",
+                  })
+                : ""
             }
             title="Confirmar pagamento"
           />

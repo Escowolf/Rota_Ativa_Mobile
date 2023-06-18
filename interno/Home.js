@@ -34,23 +34,22 @@ export default function Home({ navigation, route }) {
                                     }}>
       
       <Tab.Screen 
-        name="Home"
+        name="Inicio"
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
-        }}
-        initialParams={user}>
+        }}>
         {() => (
           <HomeStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="InicioView">
-            <HomeStack.Screen name="InicioView" component={InicioView} />
-            <HomeStack.Screen name="EditarPerfilView" component={EditarPerfilView} />
-            <HomeStack.Screen name="Erro" component={Erro} />
-            <HomeStack.Screen name="Sucesso" component={Sucesso} />
-            <HomeStack.Screen name="VeiculosView" component={VeiculosView} />
-            <HomeStack.Screen name="SuporteView" component={SuporteView}  />
-            <HomeStack.Screen name="HistoricoView" component={HistoricoView} 
+            <HomeStack.Screen initialParams={{user}} name="InicioView" component={InicioView} />
+            <HomeStack.Screen initialParams={{user}} name="EditarPerfilView" component={EditarPerfilView} />
+            <HomeStack.Screen initialParams={{user}} name="Erro" component={Erro} />
+            <HomeStack.Screen initialParams={{user}} name="Sucesso" component={Sucesso} />
+            <HomeStack.Screen initialParams={{user}} name="VeiculosView" component={VeiculosView} />
+            <HomeStack.Screen initialParams={{user}} name="SuporteView" component={SuporteView}  />
+            <HomeStack.Screen initialParams={{user}} name="HistoricoView" component={HistoricoView} 
 />
           </HomeStack.Navigator>
         )}
@@ -66,10 +65,10 @@ export default function Home({ navigation, route }) {
         }}>
         {() => (
           <MapStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Map">
-            <MapStack.Screen name="Map" component={Map} />
-            <MapStack.Screen name="EstacionarView" component={EstacionarView} />
-            <MapStack.Screen name="Erro" component={Erro} />
-            <MapStack.Screen name="Sucesso" component={Sucesso} />
+            <MapStack.Screen initialParams={{user}} name="Map" component={Map} />
+            <MapStack.Screen initialParams={{user}} name="EstacionarView" component={EstacionarView} />
+            <MapStack.Screen initialParams={{user}} name="Erro" component={Erro} />
+            <MapStack.Screen initialParams={{user}} name="Sucesso" component={Sucesso} />
           </MapStack.Navigator>
         )}
       </Tab.Screen>
@@ -84,17 +83,17 @@ export default function Home({ navigation, route }) {
         }}>
         {() => (
           <SettingsStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="PerfilView">
-            <SettingsStack.Screen name="PerfilView" component={PerfilView} />
-            <SettingsStack.Screen name="PagamentoView" component={PagamentoView } />
-            <SettingsStack.Screen name="CompraCreditosView" component={CompraCreditosView} />
-            <SettingsStack.Screen name="AcompanharView" component={AcompanharView} />
-            <SettingsStack.Screen name="HistoricoView" component={HistoricoView} />
-            <SettingsStack.Screen name="Erro" component={Erro} />
-            <SettingsStack.Screen name="Sucesso" component={Sucesso} />
-            <SettingsStack.Screen name="SuporteView" component={SuporteView} />
-            <SettingsStack.Screen name="EditarPerfilView" component={EditarPerfilView} />
-            <SettingsStack.Screen name="VeiculosView" component={VeiculosView} />
-            <SettingsStack.Screen name="ConfirmarCompraView" component={ConfirmarCompraView} />
+            <SettingsStack.Screen  initialParams={{user}}  name="PerfilView" component={PerfilView} />
+            <SettingsStack.Screen initialParams={{user}} name="PagamentoView" component={PagamentoView } />
+            <SettingsStack.Screen initialParams={{user}} name="CompraCreditosView" component={CompraCreditosView} />
+            <SettingsStack.Screen initialParams={{user}} name="AcompanharView" component={AcompanharView} />
+            <SettingsStack.Screen initialParams={{user}} name="HistoricoView" component={HistoricoView} />
+            <SettingsStack.Screen initialParams={{user}} name="Erro" component={Erro} />
+            <SettingsStack.Screen initialParams={{user}} name="Sucesso" component={Sucesso} />
+            <SettingsStack.Screen initialParams={{user}} name="SuporteView" component={SuporteView} />
+            <SettingsStack.Screen initialParams={{user}} name="EditarPerfilView" component={EditarPerfilView} />
+            <SettingsStack.Screen initialParams={{user}} name="VeiculosView" component={VeiculosView} />
+            <SettingsStack.Screen initialParams={{user}} name="ConfirmarCompraView" component={ConfirmarCompraView} />
           </SettingsStack.Navigator>
         )}
       </Tab.Screen>

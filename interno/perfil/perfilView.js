@@ -4,8 +4,8 @@ import styles from "./perfilStyles";
 import PerfilViewModel from "./perfilViewModel";
 import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
-export default function PerfilView({ navigation }) {
-  const { user, loading } = PerfilViewModel();
+export default function PerfilView({ navigation, route }) {
+  const { user, loading } = PerfilViewModel(route);
 
   return (
     <View style={styles.con}>

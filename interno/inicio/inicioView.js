@@ -12,12 +12,12 @@ import styles from "./inicioStyles.js";
 import InicioViewModel from "./inicioViewModel.js";
 import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
-export default function InicioView({ navigation }) {
+export default function InicioView({ navigation, route }) {
   const {
     loading,
     historico,
     user
-  } = InicioViewModel();
+  } = InicioViewModel(route);
 
   return (
     <View style={styles.con}>

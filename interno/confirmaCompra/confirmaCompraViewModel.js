@@ -5,11 +5,6 @@ export default function ConfirmaCompraViewModel(navigation) {
   const [formaPagamento, setFormaPagamento] = useState("1");
   
   useEffect(() => {
-    if(formaPagamento == "1"){
-      console.log("1");
-    }else{
-      console.log("2");
-    }
   }, [formaPagamento]);
 
   const onSubmit = (data) => {
