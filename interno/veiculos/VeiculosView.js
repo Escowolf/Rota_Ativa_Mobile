@@ -12,21 +12,20 @@ import {
 } from "@react-native-material/core";
 import VeiculosViewModel from "./veiculosViewModel";
 import styles from "./veiculosStyles.js";
-import { useState } from "react";
 import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
 export default function VeiculosView({ navigation, route }) {
-  const [visible1, setVisible1] = useState();
 
   const {
     loading,
     veiculos,
-    veiculo,
     setVeiculo,
     setValue,
     handleSubmit,
     visible,
     setVisible,
+    visible1, 
+    setVisible1,
     onSubmit,
     getValues,
   } = VeiculosViewModel(route);

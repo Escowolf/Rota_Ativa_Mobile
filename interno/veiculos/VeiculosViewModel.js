@@ -7,6 +7,7 @@ export default function VeiculosViewModel(route) {
 
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [visible1, setVisible1] = useState();
   const { register, setValue, handleSubmit, getValues } = useForm();
   const [veiculos, setVeiculos] = useState([]);
   const [veiculo, setVeiculo] = useState({
@@ -54,6 +55,8 @@ export default function VeiculosViewModel(route) {
     handleSubmit,
     visible,
     setVisible,
+    visible1, 
+    setVisible1,
     onSubmit,
     getValues,
   };
