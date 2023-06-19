@@ -6,7 +6,11 @@ import AcompanharViewModel from "./acompanharViewModel";
 import styles from './acompanharStyles'
 
 export default function AcompanharView({ navigation }) {
-  const { setValue, handleSubmit, onSubmit } = AcompanharViewModel();
+  const {     
+    onSubmit,
+    loading,
+    setLoading 
+  } = AcompanharViewModel(navigation);
 
   return (
     <View style={styles.con}>
@@ -88,7 +92,7 @@ export default function AcompanharView({ navigation }) {
         <Button 
           tintColor="#fff" 
           style={[styles.button, styles.sair]} 
-          onPress={() => navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})} 
+          onPress={() => onSubmit({vaga, veiculo})} 
           title="Sair da vaga"
         />
         </ScrollView>

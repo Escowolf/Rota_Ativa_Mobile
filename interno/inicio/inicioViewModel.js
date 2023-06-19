@@ -10,7 +10,7 @@ export default function InicioViewModel(route) {
     
     useEffect(() => {
         setUser(route.params.user)
-        historicoService.historico((Number(route.params.user.id))).then((resp) => {
+        historicoService.historico(route.params.user.id).then((resp) => {
           setHistorico(resp.data);
           setLoading(true);
         })

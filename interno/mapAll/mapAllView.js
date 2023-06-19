@@ -3,10 +3,10 @@ import MapView, { Marker, Polyline } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import dados from "../../dados/areas.json";
 import { Button, Card, IconButton, List } from "react-native-paper";
-import MapViewModel from "./MapViewModel";
-import styles from './mapStyles.js'
+import styles from "./mapAllStyles.js";
+import MapAllViewModel from "./mapAllViewModel";
 
-export default function Map({ navigation, route }) {
+export default function MapAll({ navigation, route }) {
   const {
     vagas,
     vaga,
@@ -25,8 +25,8 @@ export default function Map({ navigation, route }) {
     setStyleMap,
     userLocation,
     endereco,
-    setEndereco
-  } = MapViewModel(route);
+    setEndereco,
+  } = MapAllViewModel(route);
 
   function novaRota() {
     userLocation();
@@ -70,18 +70,6 @@ export default function Map({ navigation, route }) {
             right={() => (
               <View>
                 <Button onPress={() => novaRota()}>Rota</Button>
-                <Button
-                  onPress={() =>
-                    navigation.navigate("EstacionarView", {
-                      vaga: vaga,
-                      user: user,
-                      regra: regra,
-                    })
-                  }
-                  mode="contained"
-                >
-                  Estacionar
-                </Button>
               </View>
             )}
           />
@@ -93,7 +81,7 @@ export default function Map({ navigation, route }) {
   function renderMarkers() {
     return vagas.map((x, i) => (
       <Marker
-        image={require("../../assets/gps.png")}
+        image={require("../../assets/gps-red.png")}
         key={i}
         coordinate={{
           latitude: x.latitudeInicial,

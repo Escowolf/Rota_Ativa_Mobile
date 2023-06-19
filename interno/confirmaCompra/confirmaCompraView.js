@@ -6,10 +6,9 @@ import pessoa from "../../dados/pessoas.json";
 import ConfirmaCompraViewModel from "./confirmaCompraViewModel";
 
 export default function ConfirmarCompraView({ route, navigation }) {
-  const { cartao, setCartao, formaPagamento, setFormaPagamento, onSubmit } =
-    ConfirmaCompraViewModel(navigation);
+  const {ticket, cartao, setCartao, formaPagamento, setFormaPagamento, onSubmit } =
+    ConfirmaCompraViewModel({ route, navigation });
 
-  const { user } = route.params.user;
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -100,6 +99,17 @@ export default function ConfirmarCompraView({ route, navigation }) {
                 </Flex>
               </Flex>
             </Radio.Group>
+            <Text
+              style={[styles.subTitulo, styles.cor, styles.margin]}
+            >
+              Valor
+            </Text>
+            <Text
+              style={[styles.subTitulo, styles.cor, styles.margin]}
+            >
+              R$ {ticket.preco},00
+            </Text>
+
           </NativeBaseProvider>
 
           <Button

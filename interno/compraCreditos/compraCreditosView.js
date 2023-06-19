@@ -122,9 +122,7 @@ export default function CompraCreditosView({ navigation, route }) {
                 variant="text"
                 onPress={() => {
                   setVisible(false);
-                  navigation.navigate("ConfirmarCompraView", {
-                    user: route.params.user,
-                  });
+                  navigation.navigate("ConfirmarCompraView", { user: route.params.user, ticket: ticket });
                 }}
               />
             </DialogActions>

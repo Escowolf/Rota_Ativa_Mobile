@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import Variaveis from "../../service/global/variaveis";
 import LoginService from "../../service/loginService/loginService";
 
 export default function LoginViewModel(navigation) {
   const { register, setValue, handleSubmit } = useForm();
-  const { user, setUser } = Variaveis();
+  const [ user, setUser ] = useState();
 
   const loginService = new LoginService();
 

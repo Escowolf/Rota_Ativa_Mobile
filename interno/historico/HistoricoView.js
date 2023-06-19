@@ -55,7 +55,7 @@ export default function HistoricoView({ navigation, route }) {
                         <Text
                           style={[styles.subTitulo, styles.cor]}
                         >
-                          {h.entrada}
+                          {h.entrada.split("T")[0]}
                         </Text>
                       </Flex>
 
@@ -81,7 +81,7 @@ export default function HistoricoView({ navigation, route }) {
                         <Text
                           style={[styles.subTitulo, styles.cor]}
                         >
-                          R$ {h.ticketUsado}0,00
+                          Ticket: {h.ticketUsado}
                         </Text>
                       </Flex>
                     </Flex>

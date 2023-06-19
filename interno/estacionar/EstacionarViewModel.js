@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import EstacionarService from "../../service/estacionarService/estacionarService";
 
 export default function EstacionarViewModel(navigation) {
+
+  const estacionarService = new EstacionarService();
+
   const [veiculoSelecionado, setVeiculoSelecionado] = useState();
   const [veiculo, setVeiculo] = useState("");
   const [credito, setCredito] = useState("1");
@@ -25,13 +29,19 @@ export default function EstacionarViewModel(navigation) {
 
   const onSubmit = (data) => {
     console.log(data);
-    data.veiculo != undefined
-      ? navigation.navigate("Sucesso", {
-          page: "Map",
-          mensagem: "Voltar",
-          button: "Voltar",
-        })
-      : "";
+    if(data.veiculo != undefined && data.ticket != undefined){
+      estacionarService.estacionar(data.ticket, data.vaga, data.veiculo[0]).then((resp) => {
+        console.log(resp.status);
+        data.veiculo != undefined
+          ? navigation.navigate("Sucesso", {
+              page: "Map",
+              mensagem: "Voltar",
+              button: "Voltar",
+            })
+          : "";
+      })
+    }
+
   };
 
   return {

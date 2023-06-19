@@ -15,6 +15,7 @@ import InicioView from './inicio/inicioView';
 import PerfilView from './perfil/perfilView';
 import ConfirmarCompraView from './confirmaCompra/confirmaCompraView';
 import Map from "./map/mapView";
+import MapAll from './mapAll/mapAllView';
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -66,6 +67,24 @@ export default function Home({ navigation, route }) {
         {() => (
           <MapStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Map">
             <MapStack.Screen initialParams={{user}} name="Map" component={Map} />
+            <MapStack.Screen initialParams={{user}} name="EstacionarView" component={EstacionarView} />
+            <MapStack.Screen initialParams={{user}} name="Erro" component={Erro} />
+            <MapStack.Screen initialParams={{user}} name="Sucesso" component={Sucesso} />
+          </MapStack.Navigator>
+        )}
+      </Tab.Screen>
+
+      <Tab.Screen 
+        name="MapaAll"
+        options={{
+          tabBarLabel: 'Zona Azul',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="map" color={color} size={26} />
+          ),
+        }}>
+        {() => (
+          <MapStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Map">
+            <MapStack.Screen initialParams={{user}} name="MapAll" component={MapAll} />
             <MapStack.Screen initialParams={{user}} name="EstacionarView" component={EstacionarView} />
             <MapStack.Screen initialParams={{user}} name="Erro" component={Erro} />
             <MapStack.Screen initialParams={{user}} name="Sucesso" component={Sucesso} />

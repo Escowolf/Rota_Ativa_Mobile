@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import EstacionarService from "../../service/estacionarService/estacionarService";
 
-export default function AcompanharViewModel() {
-  const { register, setValue, handleSubmit } = useForm();
-  const [isLoading, setIsLoading] = useState();
+export default function AcompanharViewModel(navigation) {
+  const estacionarService = new EstacionarService();
+
+  const [loading, setLoading] = useState();
 
   useEffect(() => {
-    register("nome");
-    register("email");
-    register("senha");
-    register("senhaConfirma");
-  }, [register]);
+
+  }, []);
 
   const onSubmit = (data) => {
-    Alert.alert(data.email, data.senha);
+    estacionarService.sairVaga(data.vaga, data.veiculo).then((resp) => {
+      console.log(resp.status);
+      navigation.navigate('Sucesso', {page: "PagamentoView", mensagem: "Tudo OK", button:"Voltar"})
+    })
   };
 
   return {
-    register,
-    setValue,
-    handleSubmit,
     onSubmit,
-    isLoading,
-    setIsLoading
+    loading,
+    setLoading
   };
 }

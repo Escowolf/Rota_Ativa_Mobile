@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function PerfilViewModel(route) {
+export default function PerfilViewModel({ navigation, route }) {
 
   const [user, setUser] = useState();
   const [loading, setLoading ] = useState(false)
@@ -10,7 +10,12 @@ export default function PerfilViewModel(route) {
     setLoading(true)
   }, []);
 
+  function sair(){
+    navigation.popToTop();
+  }
+
   return {
+    sair,
     user,
     loading
   };

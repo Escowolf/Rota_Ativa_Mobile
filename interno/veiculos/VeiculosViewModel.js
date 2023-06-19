@@ -30,7 +30,7 @@ export default function VeiculosViewModel(route) {
       setVeiculos(resp.data);
       setLoading(true);
     });
-  }, []);
+  }, [loading]);
 
   const onSubmit = (data) => {
     console.log(
@@ -39,9 +39,10 @@ export default function VeiculosViewModel(route) {
       data.cor,
       route.params.user
     );
-    // veiculoService.cadastrar(data.placa, data.renavan, data.cor, route.params.user).then((resp) => {
-    //   console.log(resp.status);
-    // });
+    veiculoService.cadastrar(data.placa, data.renavan, data.cor, route.params.user).then((resp) => {
+       console.log(resp.status);
+       setLoading(true);
+    });
     setVisible(false);
   };
 

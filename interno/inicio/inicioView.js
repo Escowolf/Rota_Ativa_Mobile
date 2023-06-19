@@ -54,7 +54,7 @@ export default function InicioView({ navigation, route }) {
             </Text>
               
 
-            {[historico[0],historico[1]].map((h, k) => {
+            {historico.map((h, k) => {
               return (
                 <Flex key={k} style={styles.cabecalho1} center>
                   <Flex direction="row"  center h={50}>

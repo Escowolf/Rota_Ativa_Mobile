@@ -24,6 +24,7 @@ export default StyleSheet.create({
       borderRadius: 10,
       padding: 10,
       marginBottom: 10,
+      width:300
     },
     cabecalho2: {
       marginTop: 10,

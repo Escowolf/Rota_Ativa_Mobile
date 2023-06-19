@@ -5,4 +5,8 @@ export default class CadastroService {
     return API.post("perfil/auth/user/cadastrar", {nome: nome, email:email, password:senha, cpf: cpf});
   }
 
+  editar(user) {
+    return API.post("perfil/auth/user/cadastrar", user);
+  }
+
 }

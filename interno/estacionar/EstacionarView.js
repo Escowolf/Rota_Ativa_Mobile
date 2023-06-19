@@ -1,6 +1,6 @@
 import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { Button } from "@react-native-material/core";
-import EstacionarViewModel from "./estacionarViewModel";
+import EstacionarViewModel from "./EstacionarViewModel";
 import { CheckIcon, Radio, Select, NativeBaseProvider } from "native-base";
 import { Flex, Icon, IconComponentProvider } from "@react-native-material/core";
 import styles from "./estacionarStyles.js";
@@ -79,7 +79,10 @@ export default function EstacionarView({ route, navigation }) {
               </Flex>
               <Flex>
                 <Text style={[styles.subTitulo, styles.corInfo]}>
-                  {vaga.rua_avenida} - {vaga.Bairro}
+                  {vaga.logradouro} 
+                </Text>
+                <Text style={[styles.subTitulo, styles.corInfo]}>
+                  {vaga.bairro}
                 </Text>
                 <Text style={[styles.subTitulo, styles.corInfo]}>
                   {regra}
@@ -117,7 +120,7 @@ export default function EstacionarView({ route, navigation }) {
               <Flex>
                 <Text style={[styles.subTitulo, styles.corInfo]}>
                   {" "}
-                  {user.ticket}
+                  {user.ticket == null ? 0 : user.ticket}
                 </Text>
               </Flex>
             </Flex>
@@ -198,7 +201,7 @@ export default function EstacionarView({ route, navigation }) {
             tintColor="#fff"
             style={[styles.button]}
             onPress={() =>
-              onSubmit({ vaga: vaga, veiculo: veiculoSelecionado })
+              onSubmit({ vaga: vaga, veiculo: veiculoSelecionado, ticket: credito })
             }
             title="Estacionar"
           />

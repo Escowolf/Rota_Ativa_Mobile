@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, ImageBackground } from "react-native";
 import TextField from "../../components/TextField";
 import { Button } from "@react-native-material/core";
-import EditarPerfilViewModel from "./editarPerfilViewModel";
+import EditarPerfilViewModel from "./EditarPerfilViewModel";
 import styles from "./editarPerfilStyles.js";
 
 export default function EditarPerfilView({ navigation, route }) {

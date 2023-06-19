@@ -2,19 +2,35 @@ import { useEffect, useState } from "react";
 import * as Location from "expo-location";
 import VagasService from "../../service/vagasService/vagasService";
 
-export default function MapViewModel(route) {
+export default function MapAllViewModel(route) {
 
   const vagasService = new VagasService();
 
-  const [vagas, setVagas] = useState([])
-  const [ vaga, setVaga ] = useState();
-  const [ user, setUser ] = useState();
-  const [regiao, setRegiao] = useState({
+  const [vaga, setVaga] = useState({
+    acessibilidade: false,
+    bairro: "",
+    credito: 0,
+    disponibilidade: true,
+    horarioUsoFinal: "",
+    horarioUsoInicial: "",
+    id: 2,
+    latitudeFinal: "",
+    latitudeInicial: "",
+    logradouro:" ",
+    longitudeFinal: "",
+    longitudeInicial: "",
+    nome: "",
+    ocupacao: 0,
+    tempoUso: 0,
+    totalVeiculos: 0
+});
+  const [user, setUser] = useState();
+  const regiao = {
     latitude: -3.731862,
     longitude: -38.526669,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
-  });
+  };
   const [origem, setOrigem] = useState();
   const [destino, setDestino] = useState();
   const [regra, setRegra] = useState();
@@ -24,15 +40,16 @@ export default function MapViewModel(route) {
     height: "100%",
   });
   const [endereco, setEndereco] = useState();
+  const [vagas, setVagas] = useState([]);
 
 
   useEffect(() => {
-    setUser(route.params.user)
-    vagasService.getVagasDisponiveis().then((resp) => {
-      setVagas(resp.data);
+    setUser(route.params.user);
+    vagasService.getVagasAll().then((resp) => {
+      console.log(resp.data);
+      setVagas(resp.data)
     })
   }, []);
-
 
   const userLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -51,8 +68,9 @@ export default function MapViewModel(route) {
   };
 
   return {
-    vagas,
-    vaga, 
+    vagas, 
+    setVagas,
+    vaga,
     setVaga,
     user,
     regiao,
@@ -60,14 +78,14 @@ export default function MapViewModel(route) {
     setOrigem,
     destino,
     setDestino,
-    card, 
+    card,
     setCard,
     regra,
     setRegra,
-    styleMap, 
+    styleMap,
     setStyleMap,
     userLocation,
     endereco,
-    setEndereco
+    setEndereco,
   };
 }

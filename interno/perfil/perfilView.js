@@ -5,7 +5,7 @@ import PerfilViewModel from "./perfilViewModel";
 import { HStack, NativeBaseProvider, Spinner } from "native-base";
 
 export default function PerfilView({ navigation, route }) {
-  const { user, loading } = PerfilViewModel(route);
+  const { sair, user, loading } = PerfilViewModel({ navigation, route });
 
   return (
     <View style={styles.con}>
@@ -84,9 +84,7 @@ export default function PerfilView({ navigation, route }) {
                 style={[styles.buttonCommon2]}
                 title="Sair"
                 loadingIndicatorPosition="overlay"
-                onPress={() =>
-                  navigation.navigate("SuporteView", { user: user })
-                }
+                onPress={() => sair()}
               />
             </>
           ) : (

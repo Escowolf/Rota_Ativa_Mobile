@@ -10,7 +10,7 @@ import {
   TextInput,
 } from "@react-native-material/core";
 import styles from "./pagamentoStyles.js";
-import PagamentoViewModel from "./pagamentoViewModel.js";
+import PagamentoViewModel from "./PagamentoViewModel.js";
 import pessoa from "../../dados/pessoas.json";
 
 export default function PagamentoView({ navigation, route }) {
@@ -45,6 +45,7 @@ export default function PagamentoView({ navigation, route }) {
               <Stack
                 key={k}
                 style={{
+                  marginTop: 10,
                   width: 300,
                   height: 150,
                   backgroundColor: "#888",

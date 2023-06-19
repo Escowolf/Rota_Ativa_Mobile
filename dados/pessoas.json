@@ -26,7 +26,13 @@
                 "numero": "**** **** **** 7276",
                 "cvc": "578",
                 "nome": "Teste J"
-            }
+            },
+            {
+              "bandeira": "mastercard",
+              "numero": "**** **** **** 9835",
+              "cvc": "578",
+              "nome": "Teste J"
+          }
         ],
         "historico": [
             {

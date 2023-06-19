@@ -1,8 +1,12 @@
 import API from "../API";
 
 export default class VagasService {
-  getVagas() {
-    return API.get("/60743720/json");
+  getVagasDisponiveis() {
+    return API.get("zona/auth/user/disponiveis");
+  }
+
+  getVagasAll() {
+    return API.get("zona/auth/user/vagas");
   }
 
 }
